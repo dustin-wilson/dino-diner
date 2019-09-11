@@ -9,22 +9,35 @@ namespace DinoDiner.Menu.Entrees
         public double Price { get; set; }
 
         public uint Calories { get; set; }
+        
+        private uint numberNuggets;
 
-        private List<string> ingredients = new List<string>() { "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget" };
+        public List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { };
 
-        public List<string> Ingredients { get; }
+                for(int i = 0; i < numberNuggets; i++)
+                {
+                    ingredients.Add("Chicken Nugget");
+                }
+                return ingredients;
+            }
+        }
 
         public DinoNuggets()
         {
             Price = 4.25;
             Calories = 59 * 6;
+            numberNuggets = 6;
         }
 
         public void AddNugget()
         {
             Price += .25;
             Calories += 59;
-            ingredients.Add("Chicken Nugget");
+            numberNuggets++;
         }
     }
 }
