@@ -13,22 +13,22 @@ namespace DinoDiner.Menu.Entrees
 
         public void HoldBun()
         {
-            bun = false;
+            this.bun = false;
         }
 
         public void HoldPickle()
         {
-            pickle = false;
+            this.pickle = false;
         }
 
         public void HoldKetchup()
         {
-            ketchup = false;
+            this.ketchup = false;
         }
 
         public void HoldMustard()
         {
-            mustard = false;
+            this.mustard = false;
         }
 
         public List<string> Ingredients
@@ -50,8 +50,8 @@ namespace DinoDiner.Menu.Entrees
 
         public SteakosaurusBurger()
         {
-            Price = 5.15;
-            Calories = 621;
+            this.Price = 5.15;
+            this.Calories = 621;
         }
     }
 }

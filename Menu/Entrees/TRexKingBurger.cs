@@ -17,42 +17,42 @@ namespace DinoDiner.Menu.Entrees
 
         public void HoldBun()
         {
-            bun = false;
+            this.bun = false;
         }
 
         public void HoldLettuce()
         {
-            lettuce = false;
+            this.lettuce = false;
         }
 
         public void HoldTomato()
         {
-            tomato = false;
+            this.tomato = false;
         }
 
         public void HoldOnion()
         {
-            onion = false;
+            this.onion = false;
         }
 
         public void HoldPickle()
         {
-            pickle = false;
+            this.pickle = false;
         }
 
         public void HoldKetchup()
         {
-            ketchup = false;
+            this.ketchup = false;
         }
 
         public void HoldMustard()
         {
-            mustard = false;
+            this.mustard = false;
         }
 
         public void HoldMayo()
         {
-            mayo = false;
+            this.mayo = false;
         }
 
         public List<string> Ingredients
@@ -78,8 +78,8 @@ namespace DinoDiner.Menu.Entrees
 
         public TRexKingBurger()
         {
-            Price = 8.45;
-            Calories = 728;
+            this.Price = 8.45;
+            this.Calories = 728;
         }
     }
 }

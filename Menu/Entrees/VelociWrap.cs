@@ -12,17 +12,17 @@ namespace DinoDiner.Menu.Entrees
 
         public void HoldDressing()
         {
-            dressing = false;
+            this.dressing = false;
         }
 
         public void HoldLettuce()
         {
-            lettuce = false;
+            this.lettuce = false;
         }
 
         public void HoldCheese()
         {
-            cheese = false;
+            this.cheese = false;
         }
 
         public List<string> Ingredients
@@ -43,8 +43,8 @@ namespace DinoDiner.Menu.Entrees
 
         public VelociWrap()
         {
-            Price = 6.86;
-            Calories = 356;
+            this.Price = 6.86;  
+            this.Calories = 356;
         }
     }
 }
