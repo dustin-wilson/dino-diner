@@ -21,8 +21,8 @@ namespace DinoDiner.Menu.Entrees
 
         public PterodactylWings()
         {
-            Price = 7.21;
-            Calories = 318;
+            this.Price = 7.21;
+            this.Calories = 318;
         }
     }
 }

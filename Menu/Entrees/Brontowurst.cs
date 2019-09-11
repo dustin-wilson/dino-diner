@@ -34,17 +34,17 @@ namespace DinoDiner.Menu.Entrees
 
         public void HoldBun()
         {
-            bun = false;
+            this.bun = false;
         }
 
         public void HoldPeppers()
         {
-            peppers = false;
+            this.peppers = false;
         }
 
         public void HoldOnion()
         {
-            onions = false;
+            this.onions = false;
         }
     }
 }
