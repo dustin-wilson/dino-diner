@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    class SteakosaurusBurger
+    public class SteakosaurusBurger
     {
         private bool bun = true;
         private bool pickle = true;
@@ -35,7 +35,7 @@ namespace DinoDiner.Menu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string>("Steakburger Pattie");
+                List<string> ingredients = new List<string>() { "Steakburger Pattie" };
                 if (bun) ingredients.Add("Whole Wheat Bun");
                 if (pickle) ingredients.Add("Pickle");
                 if (ketchup) ingredients.Add("Ketchup");
@@ -44,14 +44,14 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
-        private double Price { get; set; }
+        public double Price { get; set; }
 
-        private uint Calorie { get; set; }
+        public uint Calories { get; set; }
 
         public SteakosaurusBurger()
         {
             Price = 5.15;
-            Calorie = 621;
+            Calories = 621;
         }
     }
 }

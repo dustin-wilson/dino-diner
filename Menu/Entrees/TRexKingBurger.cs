@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDinerMenu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
-    class TRexKingBurger
+    public class TRexKingBurger
     {
         private bool bun = true;
         private bool lettuce = true;
@@ -59,7 +59,7 @@ namespace DinoDinerMenu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string>("Steakburger Pattie", "Steakburger Pattie", "Steakburger Pattie");
+                List<string> ingredients = new List<string>() { "Steakburger Pattie", "Steakburger Pattie", "Steakburger Pattie" };
                 if (bun) ingredients.Add("Whole Wheat Bun");
                 if (lettuce) ingredients.Add("Lettuce");
                 if (tomato) ingredients.Add("Tomato");
@@ -72,14 +72,14 @@ namespace DinoDinerMenu.Entrees
             }
         }
 
-        private double Price { get; set; }
+        public double Price { get; set; }
 
-        private uint Calorie { get; set; }
+        public uint Calories { get; set; }
 
         public TRexKingBurger()
         {
             Price = 8.45;
-            Calorie = 728;
+            Calories = 728;
         }
     }
 }
