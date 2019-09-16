@@ -4,27 +4,45 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// A class representing the VelociWrap item
+    /// </summary>
     public class VelociWrap
     {
+        //Represents if dressing should be added
         private bool dressing = true;
+        //Represents if lettuce should be added
         private bool lettuce = true;
+        //Represents if cheese should be added
         private bool cheese = true;
 
+        /// <summary>
+        /// Sets dressing field to false
+        /// </summary>
         public void HoldDressing()
         {
             this.dressing = false;
         }
 
+        /// <summary>
+        /// Sets lettuce field to false
+        /// </summary>
         public void HoldLettuce()
         {
             this.lettuce = false;
         }
 
+        /// <summary>
+        /// Sets cheese field to false
+        /// </summary>
         public void HoldCheese()
         {
             this.cheese = false;
         }
 
+        /// <summary>
+        /// Lists the ingredients in the item
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -37,10 +55,19 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Gets and sets the Price property
+        /// </summary>
         public double Price { get; set; }
 
+        /// <summary>
+        /// Gets and sets the Calories property
+        /// </summary>
         public uint Calories { get; set; }
 
+        /// <summary>
+        /// Constructs a new instance of the item
+        /// </summary>
         public VelociWrap()
         {
             this.Price = 6.86;  

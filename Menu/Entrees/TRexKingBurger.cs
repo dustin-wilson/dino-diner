@@ -4,57 +4,95 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// A class representing the TRex King Burger
+    /// </summary>
     public class TRexKingBurger
     {
+        //Represents if bun should be added
         private bool bun = true;
+        //Represents if lettuce should be added
         private bool lettuce = true;
+        //Represents if tomato should be added
         private bool tomato = true;
+        //Represents if onion should be added
         private bool onion = true;
+        //Represents if pickle should be added
         private bool pickle = true;
+        //Represents if ketchup should be added
         private bool ketchup = true;
+        //Represents if mustard should be added
         private bool mustard = true;
+        //Represents if mayo should be added
         private bool mayo = true;
 
+        /// <summary>
+        /// Sets bun property to false
+        /// </summary>
         public void HoldBun()
         {
             this.bun = false;
         }
 
+        /// <summary>
+        /// Sets lettuce property to false
+        /// </summary>
         public void HoldLettuce()
         {
             this.lettuce = false;
         }
 
+        /// <summary>
+        /// Sets tomato property to false
+        /// </summary>
         public void HoldTomato()
         {
             this.tomato = false;
         }
 
+        /// <summary>
+        /// Sets onion property to false
+        /// </summary>
         public void HoldOnion()
         {
             this.onion = false;
         }
 
+        /// <summary>
+        /// Sets pickle property to false
+        /// </summary>
         public void HoldPickle()
         {
             this.pickle = false;
         }
 
+        /// <summary>
+        /// Sets ketchup property to false
+        /// </summary>
         public void HoldKetchup()
         {
             this.ketchup = false;
         }
 
+        /// <summary>
+        /// Sets mustard property to false
+        /// </summary>
         public void HoldMustard()
         {
             this.mustard = false;
         }
 
+        /// <summary>
+        /// Sets mayo property to false
+        /// </summary>
         public void HoldMayo()
         {
             this.mayo = false;
         }
 
+        /// <summary>
+        /// Lists the Ingredients in the item
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -72,10 +110,19 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Gets and sets the price property
+        /// </summary>
         public double Price { get; set; }
 
+        /// <summary>
+        /// Gets and sets the calories property
+        /// </summary>
         public uint Calories { get; set; }
 
+        /// <summary>
+        /// Constructs an instance of the item
+        /// </summary>
         public TRexKingBurger()
         {
             this.Price = 8.45;

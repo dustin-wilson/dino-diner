@@ -4,14 +4,27 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// A class representing Dino Nuggets
+    /// </summary>
     public class DinoNuggets
     {
+        /// <summary>
+        /// Gets and sets the Price property
+        /// </summary>
         public double Price { get; set; }
 
+        /// <summary>
+        /// Gets and sets Calories property
+        /// </summary>
         public uint Calories { get; set; }
         
+        //Number of nuggets being ordered
         private uint numberNuggets;
 
+        /// <summary>
+        /// Lists ingredients in the instance
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -26,6 +39,10 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Creates an instance of the class
+        /// Number of nuggets set to 6
+        /// </summary>
         public DinoNuggets()
         {
             this.Price = 4.25;
@@ -33,6 +50,9 @@ namespace DinoDiner.Menu.Entrees
             this.numberNuggets = 6;
         }
 
+        /// <summary>
+        /// Adds a nugget and adjusts the other properties
+        /// </summary>
         public void AddNugget()
         {
             this.Price += .25;
