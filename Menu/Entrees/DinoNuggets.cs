@@ -7,18 +7,8 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// A class representing Dino Nuggets
     /// </summary>
-    public class DinoNuggets
-    {
-        /// <summary>
-        /// Gets and sets the Price property
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// Gets and sets Calories property
-        /// </summary>
-        public uint Calories { get; set; }
-        
+    public class DinoNuggets : Entree
+    {        
         //Number of nuggets being ordered
         private uint numberNuggets;
 

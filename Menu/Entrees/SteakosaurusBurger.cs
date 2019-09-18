@@ -7,7 +7,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Class representing Steakosaurus Burger
     /// </summary>
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : Entree
     {
         //Represents if bun should be added
         private bool bun = true;
@@ -65,16 +65,6 @@ namespace DinoDiner.Menu.Entrees
                 return ingredients;
             }
         }
-
-        /// <summary>
-        /// Gets and sets the Price property
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// Gets and sets Calories property
-        /// </summary>
-        public uint Calories { get; set; }
 
         /// <summary>
         /// Constructs an instance of class

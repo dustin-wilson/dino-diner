@@ -7,7 +7,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// A class representing the VelociWrap item
     /// </summary>
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
         //Represents if dressing should be added
         private bool dressing = true;
@@ -54,16 +54,6 @@ namespace DinoDiner.Menu.Entrees
                 return ingredients;
             }
         }
-
-        /// <summary>
-        /// Gets and sets the Price property
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// Gets and sets the Calories property
-        /// </summary>
-        public uint Calories { get; set; }
 
         /// <summary>
         /// Constructs a new instance of the item

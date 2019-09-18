@@ -7,7 +7,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// A class representing the TRex King Burger
     /// </summary>
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
         //Represents if bun should be added
         private bool bun = true;
@@ -109,16 +109,6 @@ namespace DinoDiner.Menu.Entrees
                 return ingredients;
             }
         }
-
-        /// <summary>
-        /// Gets and sets the price property
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// Gets and sets the calories property
-        /// </summary>
-        public uint Calories { get; set; }
 
         /// <summary>
         /// Constructs an instance of the item
