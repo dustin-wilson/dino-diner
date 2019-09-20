@@ -15,7 +15,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Lists ingredients in the instance
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
