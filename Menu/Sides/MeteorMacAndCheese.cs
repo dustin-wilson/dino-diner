@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-    public class Triceritots : Side
+    public class MeteorMacAndCheese : Side
     {
         //Holds the size 
         private Size size;
@@ -13,41 +13,43 @@ namespace DinoDiner.Menu.Sides
         /// Overrides the default size class as declared in Side
         /// Main difference is it also sets the Price and Calories when changed
         /// </summary>
-        public override Size Size {
+        public override Size Size
+        {
             get { return size; }
 
-            set {
+            set
+            {
                 size = value;
 
-                switch(size)
+                switch (size)
                 {
                     case Size.Small:
                         this.Price = 0.99;
-                        this.Calories = 352;
+                        this.Calories = 420;
                         break;
                     case Size.Medium:
                         this.Price = 1.45;
-                        this.Calories = 410;
+                        this.Calories = 490;
                         break;
                     case Size.Large:
                         this.Price = 1.95;
-                        this.Calories = 590;
+                        this.Calories = 520;
                         break;
                 }
             }
         }
 
         /// <summary>
-        /// Construncts the Triceritots
+        /// Constructor for Meteor Mac And Cheese
         /// </summary>
-        public Triceritots()
+        public MeteorMacAndCheese()
         {
-            this.Price = 0.99;
-            this.Calories = 352;
+            this.Price = .99;
+            this.Calories = 420;
 
-            ingredients.Add("Potato");
-            ingredients.Add("Salt");
-            ingredients.Add("Vegetable Oil");
+            ingredients.Add("Macaroni Noodles");
+            ingredients.Add("Cheese Product");
+            ingredients.Add("Pork Sausage");
         }
     }
 }
