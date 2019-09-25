@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Sides;
 
 namespace DinoDiner.Menu.Drinks
 {
-    class Drink
+    public class Drink
     {
+        // Private backing for Ingredients
         protected List<string> ingredients = new List<string>(); 
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets or sets the calories
         /// </summary>
-        public uint Calories { get; set; }
+        public virtual uint Calories { get; set; }
 
         /// <summary>
         /// Gets or sets the ingredients
