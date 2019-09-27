@@ -101,5 +101,35 @@ namespace MenuTest.Drinks
             tea.Sweet = false;
             Assert.Equal<uint>(32, tea.Calories);
         }
+
+        //Correct Ingredients
+        [Fact]
+        public void CorrectDefaultIngredients()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            List<string> ingredients = tea.Ingredients;
+            Assert.Contains<string>("Water", ingredients);
+            Assert.Contains<string>("Tea", ingredients);
+            Assert.DoesNotContain<string>("Lemon", ingredients);
+            Assert.DoesNotContain<string>("Cane Sugar", ingredients);
+        }
+
+        [Fact]
+        public void ContainsLemonIfAdded()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddLemon();
+            List<string> ingredients = tea.Ingredients;
+            Assert.Contains<string>("Lemon", ingredients);
+        }
+
+        [Fact]
+        public void ContainsCaneSugarIfSweet()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Sweet = true;
+            List<string> ingredients = tea.Ingredients;
+            Assert.Contains<string>("Cane Sugar", ingredients);
+        }
     }
 }

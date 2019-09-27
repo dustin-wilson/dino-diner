@@ -155,5 +155,16 @@ namespace MenuTest.Drinks
             soda.HoldIce();
             Assert.False(soda.Ice);
         }
+
+        // Has correct ingredients
+        [Fact]
+        public void ShouldHaveCorrectDefaultIngredients()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            List<string> ingredients = soda.Ingredients;
+            Assert.Contains("Water", ingredients);
+            Assert.Contains("Natural Flavors", ingredients);
+            Assert.Contains("Cane Sugar", ingredients);
+        }
     }
 }

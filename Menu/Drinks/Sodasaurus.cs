@@ -9,17 +9,10 @@ namespace DinoDiner.Menu.Drinks
     {   // Private backing for Size
         private Size size;
 
-        // Private backing for Flavor
-        private SodasaurusFlavor flavor;
-
         /// <summary>
         /// Property which returns and set flavor
         /// </summary>
-        public SodasaurusFlavor Flavor
-        {
-            get { return flavor; }
-            set { flavor = value; }
-        }
+        public SodasaurusFlavor Flavor { get; set; }
         
         /// <summary>
         /// Property to get and set size as well as change
@@ -61,6 +54,7 @@ namespace DinoDiner.Menu.Drinks
 
             ingredients.Add("Water");
             ingredients.Add("Cane Sugar");
+            ingredients.Add("Natural Flavors");
         }
     }
 }
