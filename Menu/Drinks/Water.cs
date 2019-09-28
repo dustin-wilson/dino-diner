@@ -4,7 +4,42 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    class Water : Drink
+    public class Water : Drink
     {
+        /// <summary>
+        ///  Boolean property for lemon
+        /// </summary>
+        public bool Lemon { get; set; } = false;
+
+        /// <summary>
+        /// Sets lemon to true
+        /// </summary>
+        public void AddLemon()
+        {
+            Lemon = true;
+        }
+
+        /// <summary>
+        /// returns which ingredients are in the item       
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                ingredients = new List<string>();
+                ingredients.Add("Water");
+                if (Lemon) ingredients.Add("Lemon");
+                return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// Constructor for class
+        /// </summary>
+        public Water()
+        {
+            Price = 0.10;
+            Calories = 0;
+        }
     }
 }
