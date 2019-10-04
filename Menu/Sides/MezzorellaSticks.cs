@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     public class MezzorellaSticks : Side
     {
@@ -40,16 +40,29 @@ namespace DinoDiner.Menu.Sides
         }
 
         /// <summary>
+        /// Makes the list of ingredients immutable
+        /// Returns the ingredients
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                ingredients = new List<string>();
+
+                ingredients.Add("Cheese Product");
+                ingredients.Add("Breading");
+                ingredients.Add("Vegetable Oil");
+
+                return ingredients;
+            }
+        }
+        /// <summary>
         /// Constructor for Mezzore Sticks
         /// </summary>
         public MezzorellaSticks()
         {
             Price = .99;
             Calories = 540;
-
-            ingredients.Add("Cheese Product");
-            ingredients.Add("Breading");
-            ingredients.Add("Vegetable Oil");
         }
     }
 }

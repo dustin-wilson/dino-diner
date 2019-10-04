@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     public class Tyrannotea : Drink
     {
@@ -57,19 +57,6 @@ namespace DinoDiner.Menu.Drinks
         public void AddLemon()
         {
             Lemon = true;
-            ingredients.Add("Lemon");
-        }
-
-        /// <summary>
-        /// Override ingredients so can check if need sugar
-        /// </summary>
-        public override List<string> Ingredients
-        {
-            get
-            {
-                if (Sweet) ingredients.Add("Cane Sugar");
-                return ingredients;
-            }
         }
 
         public override uint Calories
@@ -82,6 +69,25 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
+        /// Makes the list of ingredients immutable
+        /// Returns the ingredients
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                ingredients = new List<string>();
+
+                ingredients.Add("Water");
+                ingredients.Add("Tea");
+                if (Sweet) ingredients.Add("Cane Sugar");
+                if (Lemon) ingredients.Add("Lemon");
+
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// Constructor for Tyrannotea
         /// </summary>
         public Tyrannotea()
@@ -89,9 +95,6 @@ namespace DinoDiner.Menu.Drinks
             Price = 0.99;
             Calories = 8;
             Size = Size.Small;
-
-            ingredients.Add("Water");
-            ingredients.Add("Tea");
         }
     }
 }

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Sides;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     public class Sodasaurus : Drink
     {   // Private backing for Size
@@ -45,16 +44,29 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
+        /// Makes the list of ingredients immutable
+        /// Returns the ingredients
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                ingredients = new List<string>();
+
+                ingredients.Add("Water");
+                ingredients.Add("Cane Sugar");
+                ingredients.Add("Natural Flavors");
+
+                return ingredients;
+            }
+        }
+        /// <summary>
         /// Public constructor for Sodasaurus
         /// </summary>
         public Sodasaurus()
         {
             this.Calories = 112;
             this.Price = 1.5;
-
-            ingredients.Add("Water");
-            ingredients.Add("Cane Sugar");
-            ingredients.Add("Natural Flavors");
         }
     }
 }

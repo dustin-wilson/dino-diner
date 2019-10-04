@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     public class Triceritots : Side
     {
@@ -38,16 +38,30 @@ namespace DinoDiner.Menu.Sides
         }
 
         /// <summary>
+        /// Makes the list of ingredients immutable
+        /// Returns the ingredients
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                ingredients = new List<string>();
+
+                ingredients.Add("Potato");
+                ingredients.Add("Salt");
+                ingredients.Add("Vegetable Oil");
+
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// Construncts the Triceritots
         /// </summary>
         public Triceritots()
         {
             this.Price = 0.99;
             this.Calories = 352;
-
-            ingredients.Add("Potato");
-            ingredients.Add("Salt");
-            ingredients.Add("Vegetable Oil");
         }
     }
 }

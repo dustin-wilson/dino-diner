@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     public class MeteorMacAndCheese : Side
     {
@@ -40,16 +40,30 @@ namespace DinoDiner.Menu.Sides
         }
 
         /// <summary>
+        /// Makes the list of ingredients immutable
+        /// Returns the ingredients
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                ingredients = new List<string>();
+
+                ingredients.Add("Macaroni Noodles");
+                ingredients.Add("Cheese Product");
+                ingredients.Add("Pork Sausage");
+
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// Constructor for Meteor Mac And Cheese
         /// </summary>
         public MeteorMacAndCheese()
         {
             this.Price = .99;
             this.Calories = 420;
-
-            ingredients.Add("Macaroni Noodles");
-            ingredients.Add("Cheese Product");
-            ingredients.Add("Pork Sausage");
         }
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class Drink
+    public class Drink : IMenuItem
     {
         // Private backing for Ingredients
         protected List<string> ingredients = new List<string>(); 

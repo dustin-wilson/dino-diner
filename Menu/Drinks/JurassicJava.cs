@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
         /// <summary>
         /// Boolean to indicate if room should be left for cream
@@ -64,15 +64,62 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
+        /// Makes the list of ingredients immutable
+        /// Returns the ingredients
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                ingredients = new List<string>();
+
+                ingredients.Add("Water");
+                ingredients.Add("Coffee");
+
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// Public Constructor for JurrasicJava
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             Ice = false;
-            ingredients.Add("Water");
-            ingredients.Add("Coffee");
             Price = .59;
             Calories = 2;
+        }
+
+        /// <summary>
+        /// Create defaut ToString Method
+        /// </summary>
+        /// <returns>String of what the item is</returns>
+        public override string ToString()
+        {
+            if (!Decaf)
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return "Small Jurassic Java";
+                    case Size.Medium:
+                        return "Medium Jurassic Java";
+                    case Size.Large:
+                        return "Large Jurassic Java";
+                }
+            } else
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return "Small Decaf Jurassic Java";
+                    case Size.Medium:
+                        return "Medium Decaf Jurassic Java";
+                    case Size.Large:
+                        return "Large Decaf Jurassic Java";
+                }
+            }
+            return base.ToString();
         }
     }
 }

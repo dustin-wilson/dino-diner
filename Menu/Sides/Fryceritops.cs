@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     public class Fryceritops : Side
     {
@@ -39,14 +39,40 @@ namespace DinoDiner.Menu.Sides
             }
         }
 
+        /// <summary>
+        /// Makes the list of ingredients immutable
+        /// Returns the ingredients
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+
+                ingredients.Add("Potato");
+                ingredients.Add("Salt");
+                ingredients.Add("Vegetable Oil");
+
+                return ingredients;
+            }
+        } 
+
+        /// <summary>
+        /// Constructor for the class
+        /// </summary>
         public Fryceritops()
         {
             this.Price = 0.99;
             this.Calories = 222;
+        }
 
-            ingredients.Add("Potato");
-            ingredients.Add("Salt");
-            ingredients.Add("Vegetable Oil");
+        /// <summary>
+        /// Override default ToString method
+        /// </summary>
+        /// <returns>Description of the object</returns>
+        public override string ToString()
+        {
+            return (Size.ToString() + " Friceritops");
         }
     }
 }

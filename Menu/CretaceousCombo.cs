@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Entrees;
-using DinoDiner.Menu.Drinks;
-using DinoDiner.Menu.Sides;
 
 namespace DinoDiner.Menu
 {
-    class CretaceousCombo
+    public class CretaceousCombo : IMenuItem
     {
         /// <summary>
         /// Contain entree user wants in their combo
@@ -88,7 +85,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// All ingredients in each item
         /// </summary>
-        public List<string> Ingredient
+        public List<string> Ingredients
         {
             get
             {
