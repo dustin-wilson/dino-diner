@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* CretaceousCombo.cs
+ * Author: Dustin Wilson
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -106,6 +110,15 @@ namespace DinoDiner.Menu
             Entree = entree;
             Side = new Fryceritops();
             Drink = new Sodasaurus();
+        }
+
+        /// <summary>
+        /// Create defaut ToString Method
+        /// </summary>
+        /// <returns>String of what the item is</returns>
+        public override string ToString()
+        {
+            return Entree.ToString() + " Combo";
         }
     }
 }

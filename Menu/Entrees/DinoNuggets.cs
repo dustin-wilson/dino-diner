@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* DinoNuggets.cs
+ * Author: Dustin Wilson
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -48,6 +52,11 @@ namespace DinoDiner.Menu
             this.Price += .25;
             this.Calories += 59;
             this.numberNuggets++;
+        }
+
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
         }
     }
 }

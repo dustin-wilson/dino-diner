@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Side.cs
+ * Author: Dustin Wilson
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

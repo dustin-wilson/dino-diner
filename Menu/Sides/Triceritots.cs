@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Triceritots.cs
+ * Author: Dustin Wilson
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -62,6 +66,15 @@ namespace DinoDiner.Menu
         {
             this.Price = 0.99;
             this.Calories = 352;
+        }
+
+        /// <summary>
+        /// Create defaut ToString Method
+        /// </summary>
+        /// <returns>String of what the item is</returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " Triceritots";
         }
     }
 }

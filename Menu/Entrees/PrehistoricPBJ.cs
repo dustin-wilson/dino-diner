@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿/* PrehistoricPBJ.cs
+ * Author: Dustin Wilson
+ */
+
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu
 {
@@ -49,6 +53,15 @@ namespace DinoDiner.Menu
         public void HoldJelly()
         {
             this.jelly = false;
+        }
+
+        /// <summary>
+        /// Create defaut ToString Method
+        /// </summary>
+        /// <returns>String of what the item is</returns>
+        public override string ToString()
+        {
+            return "Prehistoric PB&J";
         }
     }
 }

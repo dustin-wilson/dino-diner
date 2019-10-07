@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* PterodactylWings.cs
+ * Author: Dustin Wilson
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -28,6 +32,15 @@ namespace DinoDiner.Menu
         {
             this.Price = 7.21;
             this.Calories = 318;
+        }
+
+        /// <summary>
+        /// Create defaut ToString Method
+        /// </summary>
+        /// <returns>String of what the item is</returns>
+        public override string ToString()
+        {
+            return "Pterodactyl Wings";
         }
     }
 }

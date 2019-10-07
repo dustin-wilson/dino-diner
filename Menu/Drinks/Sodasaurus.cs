@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Sodasaurus.cs
+ * Author: Dustin Wilson
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -67,6 +71,15 @@ namespace DinoDiner.Menu
         {
             this.Calories = 112;
             this.Price = 1.5;
+        }
+
+        /// <summary>
+        /// Create defaut ToString Method
+        /// </summary>
+        /// <returns>String of what the item is</returns>
+        public override string ToString()
+        {
+            return this.Size.ToString() + " " + this.Flavor.ToString() + " Sodasaurus";
         }
     }
 }

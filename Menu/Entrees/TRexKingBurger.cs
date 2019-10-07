@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* TRexKingBurger.cs
+ * Author: Dustin Wilson
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -117,6 +121,15 @@ namespace DinoDiner.Menu
         {
             this.Price = 8.45;
             this.Calories = 728;
+        }
+
+        /// <summary>
+        /// Create defaut ToString Method
+        /// </summary>
+        /// <returns>String of what the item is</returns>
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Brotowurst.cs
+ * Author: Dustin Wilson
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -62,6 +66,15 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onions = false;
+        }
+
+        /// <summary>
+        /// Create defaut ToString Method
+        /// </summary>
+        /// <returns>String of what the item is</returns>
+        public override string ToString()
+        {
+            return "Brontowurst";
         }
     }
 }

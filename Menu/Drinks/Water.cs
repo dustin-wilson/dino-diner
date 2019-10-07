@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Water.cs
+ * Author: Dustin Wilson
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -40,6 +44,10 @@ namespace DinoDiner.Menu
         {
             Price = 0.10;
             Calories = 0;
+        }
+        public override string ToString()
+        {
+            return Size.ToString() + " Water";
         }
     }
 }
