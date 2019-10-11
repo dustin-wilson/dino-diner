@@ -9,6 +9,24 @@
       Title="FlavorSelection">
 
     <Grid>
-        <TextBlock Text="Flavors" FontSize="50"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Content="Cherry"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="Chocolate"/>
+        <Button Grid.Row="0" Grid.Column="2" Content="Cola"/>
+        <Button Grid.Row="1" Grid.Column="0" Content="Lime"/>
+        <Button Grid.Row="1" Grid.Column="1" Content="Orange"/>
+        <Button Grid.Row="1" Grid.Column="2" Content="RootBeer"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="Vanilla"/>
     </Grid>
 </Page>

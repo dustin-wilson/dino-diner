@@ -51,7 +51,7 @@
             <Button x:Name="lemonButton" Visibility="Hidden" Content="No Lemon" Click="LemonSelect"/>
             <Button x:Name="sweetButton" Visibility="Hidden" Content="Unsweetened Tea" Click="SweetSelect"/>
             <Button x:Name="creamButton" Visibility="Hidden" Content="Leave Room for Cream" Click="CreamSelect"/>
-            <Button x:Name="cafButton" Visibility="Hidden" Content="Caffentated" Click="CafSelect"/>
+            <Button x:Name="cafButton" Visibility="Hidden" Content="Caffenated" Click="CafSelect"/>
         </StackPanel>
     </Grid>
 </Page>

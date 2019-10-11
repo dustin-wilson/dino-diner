@@ -11,16 +11,16 @@
     <Grid>
         <Grid.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="140"/>
-                <Setter Property="Height" Value="100"/>
-                <Setter Property="Margin" Value="5,5,5,5"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Height" Value="110"/>
             </Style>
         </Grid.Resources>
 
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -28,13 +28,50 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
-        <Button Grid.Row="0" Grid.Column="0">Brontowurst Combo</Button>
-        <Button Grid.Row="0" Grid.Column="1">Dino-Nuggets Combo</Button>
-        <Button Grid.Row="0" Grid.Column="2">Prehistoric PB&amp;J Combo</Button>
-        <Button Grid.Row="1" Grid.Column="0">Pterodactyl Wings Combo</Button>
-        <Button Grid.Row="1" Grid.Column="1">Steakosaursus Combo</Button>
-        <Button Grid.Row="1" Grid.Column="2">T-Rex King Burger Combo</Button>
-        <Button Grid.Row="2" Grid.Column="0">Veloci-Wrap</Button>
+
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" FontSize="20">Add to Order</TextBlock>
+        <Button Grid.Row="1" Grid.Column="0" Background="White" Click="BrontoSelect">
+            <StackPanel>
+                <Image Source="Images/DinoDiner-01.png" Width="90"/>
+                <TextBlock Text="Brontowurst" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="1" Background="White" Click="NugSelect">
+            <StackPanel>
+                <Image Source="Images/DinoDiner-02.png" Width="90"/>
+                <TextBlock Text="Dino-Nuggets" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="2" Background="White" Click="PBSelect">
+            <StackPanel>
+                <Image Source="Images/DinoDiner-03.png" Width="90"/>
+                <TextBlock Text="Prehistoric PB&amp;J Combo" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="0" Background="White" Click="WingSelect">
+            <StackPanel>
+                <Image Source="Images/DinoDiner-04.png" Width="90"/>
+                <TextBlock Text="Pterodactyl Wings Combo" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="1" Background="White" Click="SteakosarusSelect">
+            <StackPanel>
+                <Image Source="Images/DinoDiner-05.png" Width="70"/>
+                <TextBlock Text="Steakosarus" HorizontalAlignment="Center"/>
+                <TextBlock Text="Burger Combo"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="2" Background="White" Click="KingSelect">
+            <StackPanel>
+                <Image Source="Images/DinoDiner-06.png" Width="90"/>
+                <TextBlock Text="T-Rex King Burger Combo" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="3" Grid.Column="1" Background="White" Click="WrapSelect">
+            <StackPanel>
+                <Image Source="Images/DinoDiner-07.png" Width="90"/>
+                <TextBlock Text="Veloci-Wrap Combo" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Page>

@@ -24,5 +24,40 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        private void BrontoSelect(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CustomizeCombo("Bronotowurst"));
+        }
+
+        private void NugSelect(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CustomizeCombo("Dino-Nuggets"));
+        }
+
+        private void PBSelect(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CustomizeCombo("Prehistoric PB&amp;J"));
+        }
+
+        private void WingSelect(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CustomizeCombo("Pterodactyl Wings"));
+        }
+
+        private void SteakosarusSelect(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CustomizeCombo("Steakosarus Burger"));
+        }
+
+        private void KingSelect(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CustomizeCombo("T-Rex King Burger"));
+        }
+
+        private void WrapSelect(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CustomizeCombo("Veloci-Wrap"));
+        }
     }
 }

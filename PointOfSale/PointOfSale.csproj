@@ -58,6 +58,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomizeCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DrinkSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -76,6 +80,9 @@
     </Compile>
     <Compile Include="ComboSelection.xaml.cs">
       <DependentUpon>ComboSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeCombo.xaml.cs">
+      <DependentUpon>CustomizeCombo.xaml</DependentUpon>
     </Compile>
     <Compile Include="DrinkSelection.xaml.cs">
       <DependentUpon>DrinkSelection.xaml</DependentUpon>
@@ -120,6 +127,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\DinoDiner-01.png" />
+    <Resource Include="Images\DinoDiner-02.png" />
+    <Resource Include="Images\DinoDiner-03.png" />
+    <Resource Include="Images\DinoDiner-04.png" />
+    <Resource Include="Images\DinoDiner-05.png" />
+    <Resource Include="Images\DinoDiner-06.png" />
+    <Resource Include="Images\DinoDiner-07.png" />
+    <Resource Include="Images\DinoDiner-08.png" />
+    <Resource Include="Images\DinoDiner-09.png" />
+    <Resource Include="Images\DinoDiner-10.png" />
+    <Resource Include="Images\DinoDiner-11.png" />
+    <Resource Include="Images\DinoDiner-12.png" />
+    <Resource Include="Images\DinoDiner-13.png" />
+    <Resource Include="Images\DinoDiner-14.png" />
+    <Resource Include="Images\DinoDiner-15.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
