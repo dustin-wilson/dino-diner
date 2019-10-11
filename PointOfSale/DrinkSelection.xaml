@@ -9,29 +9,49 @@
       Title="DrinkSelection">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
+        <!--This sets up the page into three columns-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-
-        <Button Grid.Row="0" Grid.Column="0">Combos</Button>
-        <Button Grid.Row="0" Grid.Column="1">Entree</Button>
-        <Button Grid.Row="1" Grid.Column="0">Sides</Button>
-        <Button Grid.Row="1" Grid.Column="1">Drink</Button>
         
-        <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="2">
+        <!--First column dedicated Selecting which drink-->
+        <Grid Grid.Column="0">
             <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button>Coool</Button>
+            <Button Grid.Row="0" Click="SodasaurusSelect">Sodasaurus</Button>
+            <Button Grid.Row="1" Click="TeaSelect">Tyrannotea</Button>
+            <Button Grid.Row="2" Click="JavaSelect">Jurrasic Java</Button>
+            <Button Grid.Row="3" Click="WaterSelect">Water</Button>
         </Grid>
+        
+        <!--Second Column Has Size-->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <RadioButton Grid.Row="0" IsChecked="True" Content="Small" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <RadioButton Grid.Row="1" IsChecked="False" Content="Medium" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <RadioButton Grid.Row="2" IsChecked="False" Content="Large" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        
+        <!--Third Column For Special Settings-->
+        <StackPanel Grid.Column="2">
+            <Button x:Name="flavorButton" Visibility="Hidden" Click="FlavorSelect">Flavor</Button>
+            <Button x:Name="iceButton" Content="Includes Ice" Visibility="Hidden" Click="NoIceSelect"/>
+            <Button x:Name="lemonButton" Visibility="Hidden" Content="No Lemon" Click="LemonSelect"/>
+            <Button x:Name="sweetButton" Visibility="Hidden" Content="Unsweetened Tea" Click="SweetSelect"/>
+            <Button x:Name="creamButton" Visibility="Hidden" Content="Leave Room for Cream" Click="CreamSelect"/>
+            <Button x:Name="cafButton" Visibility="Hidden" Content="Caffentated" Click="CafSelect"/>
+        </StackPanel>
     </Grid>
 </Page>

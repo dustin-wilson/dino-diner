@@ -8,21 +8,33 @@
       d:DesignHeight="400" d:DesignWidth="592"
       Title="ComboSelection">
 
-    <WrapPanel>
-        <WrapPanel.Resources>
+    <Grid>
+        <Grid.Resources>
             <Style TargetType="Button">
                 <Setter Property="Width" Value="140"/>
                 <Setter Property="Height" Value="100"/>
-                <Setter Property="Margin" Value="10,10,10,10"/>
+                <Setter Property="Margin" Value="5,5,5,5"/>
             </Style>
-        </WrapPanel.Resources>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         
-        <Button>Brontowurst Combo</Button>
-        <Button>Dino-Nuggets Combo</Button>
-        <Button>Prehistoric PB&amp;J Combo</Button>
-        <Button>Pterodactyl Wings Combo</Button>
-        <Button>Steakosaursus Combo</Button>
-        <Button>T-Rex King Burger Combo</Button>
-        <Button>Veloci-Wrap</Button>
-    </WrapPanel>
+        <Button Grid.Row="0" Grid.Column="0">Brontowurst Combo</Button>
+        <Button Grid.Row="0" Grid.Column="1">Dino-Nuggets Combo</Button>
+        <Button Grid.Row="0" Grid.Column="2">Prehistoric PB&amp;J Combo</Button>
+        <Button Grid.Row="1" Grid.Column="0">Pterodactyl Wings Combo</Button>
+        <Button Grid.Row="1" Grid.Column="1">Steakosaursus Combo</Button>
+        <Button Grid.Row="1" Grid.Column="2">T-Rex King Burger Combo</Button>
+        <Button Grid.Row="2" Grid.Column="0">Veloci-Wrap</Button>
+    </Grid>
 </Page>
