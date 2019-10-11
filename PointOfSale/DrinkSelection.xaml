@@ -1,0 +1,37 @@
+﻿<Page x:Class="PointOfSale.DrinkSelection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="592"
+      Title="DrinkSelection">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0">Combos</Button>
+        <Button Grid.Row="0" Grid.Column="1">Entree</Button>
+        <Button Grid.Row="1" Grid.Column="0">Sides</Button>
+        <Button Grid.Row="1" Grid.Column="1">Drink</Button>
+        
+        <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button>Coool</Button>
+        </Grid>
+    </Grid>
+</Page>
