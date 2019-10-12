@@ -1,4 +1,4 @@
-﻿/* FlavorSelection.xaml.cs
+﻿/* EntreeSelection.xaml.cs
  * Author: Dustin Wilson
  */
  
@@ -20,14 +20,14 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for FlavorSelection.xaml
+    /// Interaction logic for EntreeSelection.xaml
     /// </summary>
-    public partial class FlavorSelection : Page
+    public partial class EntreeSelection : Page
     {
         /// <summary>
         /// Public Constructor
         /// </summary>
-        public FlavorSelection()
+        public EntreeSelection()
         {
             InitializeComponent();
         }

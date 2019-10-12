@@ -66,6 +66,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EntreeSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FlavorSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -86,6 +90,9 @@
     </Compile>
     <Compile Include="DrinkSelection.xaml.cs">
       <DependentUpon>DrinkSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EntreeSelection.xaml.cs">
+      <DependentUpon>EntreeSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="FlavorSelection.xaml.cs">
       <DependentUpon>FlavorSelection.xaml</DependentUpon>
