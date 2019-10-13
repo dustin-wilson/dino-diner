@@ -76,7 +76,7 @@ namespace DinoDiner.Menu
         /// <returns>Description of the object</returns>
         public override string ToString()
         {
-            return (Size.ToString() + " Friceritops");
+            return (Size.ToString() + " Fryceritops");
         }
     }
 }
