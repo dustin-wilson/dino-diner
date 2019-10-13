@@ -45,6 +45,11 @@ namespace PointOfSale
             sweetButton.Visibility = Visibility.Hidden;
             creamButton.Visibility = Visibility.Hidden;
             cafButton.Visibility = Visibility.Hidden;
+
+            soda.Background = new SolidColorBrush(Color.FromRgb(173, 216, 230));
+            tea.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            coffee.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            water.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
         }
 
         /// <summary>
@@ -54,8 +59,16 @@ namespace PointOfSale
         /// <param name="e">Routed Event Argument</param>
         private void NoIceSelect(object sender, RoutedEventArgs e)
         {
-            if (iceButton.Content.Equals("Includes Ice")) iceButton.Content = "No Ice";
-            else iceButton.Content = "Includes Ice";
+            if (iceButton.Content.Equals("Includes Ice"))
+            {
+                iceButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                iceButton.Content = "No Ice";
+            }
+            else
+            {
+                iceButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
+                iceButton.Content = "Includes Ice";
+            }
         }
 
         /// <summary>
@@ -65,8 +78,16 @@ namespace PointOfSale
         /// <param name="e">Routed Event Argument</param>
         private void LemonSelect(object sender, RoutedEventArgs e)
         {
-            if (lemonButton.Content.Equals("No Lemon")) lemonButton.Content = "Includes Lemon";
-            else lemonButton.Content = "No Lemon";
+            if (lemonButton.Content.Equals("No Lemon"))
+            {
+                lemonButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
+                lemonButton.Content = "Includes Lemon";
+            }
+            else
+            {
+                lemonButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                lemonButton.Content = "No Lemon";
+            }
         }
 
 
@@ -77,8 +98,16 @@ namespace PointOfSale
         /// <param name="e">Routed Event Argument</param>
         private void SweetSelect(object sender, RoutedEventArgs e)
         {
-            if (sweetButton.Content.Equals("Unsweetened Tea")) sweetButton.Content = "Sweet Tea";
-            else sweetButton.Content = "Unsweetened Tea";
+            if (sweetButton.Content.Equals("Unsweetened Tea"))
+            {
+                sweetButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
+                sweetButton.Content = "Sweet Tea";
+            }
+            else
+            {
+                sweetButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                sweetButton.Content = "Unsweetened Tea";
+            }
         }
 
         /// <summary>
@@ -94,6 +123,11 @@ namespace PointOfSale
             sweetButton.Visibility = Visibility.Visible;
             creamButton.Visibility = Visibility.Hidden;
             cafButton.Visibility = Visibility.Hidden;
+
+            soda.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            tea.Background = new SolidColorBrush(Color.FromRgb(173, 216, 230));
+            coffee.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            water.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
         }
 
         /// <summary>
@@ -109,6 +143,11 @@ namespace PointOfSale
             sweetButton.Visibility = Visibility.Hidden;
             creamButton.Visibility = Visibility.Visible;
             cafButton.Visibility = Visibility.Visible;
+
+            soda.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            tea.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            coffee.Background = new SolidColorBrush(Color.FromRgb(173, 216, 230));
+            water.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
         }
 
         /// <summary>
@@ -124,6 +163,11 @@ namespace PointOfSale
             sweetButton.Visibility = Visibility.Hidden;
             creamButton.Visibility = Visibility.Hidden;
             cafButton.Visibility = Visibility.Hidden;
+
+            soda.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            tea.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            coffee.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            water.Background = new SolidColorBrush(Color.FromRgb(173, 216, 230));
         }
 
 
@@ -134,8 +178,16 @@ namespace PointOfSale
         /// <param name="e">Routed Event Argument</param>
         private void CreamSelect(object sender, RoutedEventArgs e)
         {
-            if (creamButton.Content.Equals("Leave Room for Cream")) creamButton.Content = "No Room for Cream";
-            else creamButton.Content = "Leave Room for Cream";
+            if (creamButton.Content.Equals("Leave Room for Cream"))
+            {
+                creamButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                creamButton.Content = "No Room for Cream";
+            }
+            else
+            {
+                creamButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
+                creamButton.Content = "Leave Room for Cream";
+            }
         }
 
         /// <summary>
@@ -145,8 +197,16 @@ namespace PointOfSale
         /// <param name="e">Routed Event Argument</param>
         private void CafSelect(object sender, RoutedEventArgs e)
         {
-            if (cafButton.Content.Equals("Caffenated")) cafButton.Content = "Decaf";
-            else cafButton.Content = "Caffenated";
+            if (cafButton.Content.Equals("Caffenated"))
+            {
+                cafButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                cafButton.Content = "Decaf";
+            }
+            else
+            {
+                cafButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
+                cafButton.Content = "Caffenated";
+            }
         }
 
         /// <summary>

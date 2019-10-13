@@ -45,25 +45,25 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" Click="SodasaurusSelect" Background="White">
+            <Button Grid.Row="0" Click="SodasaurusSelect" Background="White" x:Name="soda">
                 <StackPanel>
                     <Image Source="Images/DinoDiner-14.png" Width="60"/>
                     <TextBlock Text="Sodasaurus" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="1" Click="TeaSelect" Background="White">
+            <Button Grid.Row="1" Click="TeaSelect" Background="White" x:Name="tea">
                 <StackPanel>
                     <Image Source="Images/DinoDiner-12.png" Width="60"/>
                     <TextBlock Text="Tryrannotea" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="2" Click="JavaSelect" Background="White">
+            <Button Grid.Row="2" Click="JavaSelect" Background="White" x:Name="coffee">
                 <StackPanel>
                     <Image Source="Images/DinoDiner-13.png" Width="60"/>
                     <TextBlock Text="Jurassic Java" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="3" Click="WaterSelect" Background="White">
+            <Button Grid.Row="3" Click="WaterSelect" Background="White" x:Name="water">
                 <StackPanel>
                     <Image Source="Images/DinoDiner-15.png" Width="60"/>
                     <TextBlock Text="Water" HorizontalAlignment="Center"/>
@@ -94,11 +94,11 @@
             </Grid.RowDefinitions>
 
             <Button x:Name="flavorButton" Grid.Row="0" Content="Flavor" Visibility="Hidden" Click="FlavorSelect"/>
-            <Button x:Name="iceButton" Grid.Row="1" Content="Includes Ice" Visibility="Hidden" Click="NoIceSelect"/>
-            <Button x:Name="lemonButton" Grid.Row="2" Visibility="Hidden" Content="No Lemon" Click="LemonSelect"/>
-            <Button x:Name="sweetButton" Grid.Row="3"  Visibility="Hidden" Content="Unsweetened Tea" Click="SweetSelect"/>
-            <Button x:Name="creamButton" Grid.Row="2" Visibility="Hidden" Content="Leave Room for Cream" Click="CreamSelect"/>
-            <Button x:Name="cafButton" Grid.Row="3" Visibility="Hidden" Content="Caffenated" Click="CafSelect"/>
+            <Button x:Name="iceButton" Grid.Row="1" Content="Includes Ice" Visibility="Hidden" Click="NoIceSelect" Background="Green"/>
+            <Button x:Name="lemonButton" Grid.Row="2" Visibility="Hidden" Content="No Lemon" Click="LemonSelect" Background="Red"/>
+            <Button x:Name="sweetButton" Grid.Row="3"  Visibility="Hidden" Content="Unsweetened Tea" Click="SweetSelect" Background="Red"/>
+            <Button x:Name="creamButton" Grid.Row="2" Visibility="Hidden" Content="Leave Room for Cream" Click="CreamSelect" Background="Green"/>
+            <Button x:Name="cafButton" Grid.Row="3" Visibility="Hidden" Content="Caffenated" Click="CafSelect" Background="Green"/>
         </Grid>
     </Grid>
 </Page>

@@ -59,7 +59,7 @@ namespace PointOfSale
         /// <param name="e">Routed Event Argument</param>
         private void PBSelect(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo("Prehistoric PB&amp;J"));
+            NavigationService.Navigate(new CustomizeCombo("Prehistoric PB&J"));
         }
 
         /// <summary>
