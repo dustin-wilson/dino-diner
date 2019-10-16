@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Entree : IMenuItem
+    public abstract class Entree : IMenuItem, IOrderItem
     {
         protected List<string> ingredients = new List<string>();
 
@@ -26,5 +26,15 @@ namespace DinoDiner.Menu
         /// Gets the ingredients list
         /// </summary>
         public virtual List<string> Ingredients { get { return ingredients; } }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
+        /// Returns any special instructions
+        /// </summary>
+        public abstract string[] Special { get; }
     }
 }
