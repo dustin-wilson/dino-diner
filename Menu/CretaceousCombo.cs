@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo : IMenuItem, INotifyPropertyChanged
+    public class CretaceousCombo : IMenuItem, INotifyPropertyChanged, IOrderItem
     {
         private Entree entree;
         /// <summary>
@@ -40,7 +40,10 @@ namespace DinoDiner.Menu
             set
             {
                 side = value;
-                Side.Size = size;
+                side.PropertyChanged += (object sender, PropertyChangedEventArgs args) =>
+                {
+                    NotifyOfPropertyChanged(args.PropertyName);
+                };
             }
         }
 
@@ -56,7 +59,10 @@ namespace DinoDiner.Menu
             set
             {
                 drink = value;
-                Drink.Size = size;
+                drink.PropertyChanged += (object sender, PropertyChangedEventArgs args) =>
+                {
+                    NotifyOfPropertyChanged(args.PropertyName);
+                };
             }
         }
 
