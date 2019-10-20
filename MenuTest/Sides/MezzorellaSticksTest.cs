@@ -83,5 +83,62 @@ namespace MenuTest.Sides
             ms.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ms.Size);
         }
+
+        [Fact]
+        public void DescriptionDefaultShouldBeCorrect()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.Equal("Small Mezzorella Sticks", ms.Description);
+        }
+
+        [Fact]
+        public void SwitchingToSmallDescriptionShouldBeCorrect()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            ms.Size = Size.Large;
+            ms.Size = Size.Small;
+            Assert.Equal("Small Mezzorella Sticks", ms.Description);
+        }
+
+        [Fact]
+        public void SwitchingToMediumDescriptionShouldBeCorrect()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            ms.Size = Size.Medium;
+            Assert.Equal("Medium Mezzorella Sticks", ms.Description);
+        }
+
+        [Fact]
+        public void SwitchingToLargeDescriptionShouldBeCorrect()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            ms.Size = Size.Large;
+            Assert.Equal("Large Mezzorella Sticks", ms.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.Empty(ms.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyEveryone()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Price", () =>
+            {
+                ms.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(ms, "Description", () =>
+            {
+                ms.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(ms, "Calories", () =>
+            {
+                ms.Size = Size.Medium;
+            });
+        }
     }
 }

@@ -40,6 +40,10 @@ namespace DinoDiner.Menu
                         this.Calories = 480;
                         break;
                 }
+
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Calories");
             }
         }
 
@@ -77,6 +81,18 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return (Size.ToString() + " Fryceritops");
+        }
+
+        /// <summary>
+        /// Indicates if there are any special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
         }
     }
 }

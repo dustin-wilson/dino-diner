@@ -83,5 +83,62 @@ namespace MenuTest.Sides
             ft.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ft.Size);
         }
+
+        [Fact]
+        public void DescriptionDefaultShouldBeCorrect()
+        {
+            Fryceritops fr = new Fryceritops();
+            Assert.Equal("Small Fryceritops", fr.Description);
+        }
+
+        [Fact]
+        public void SwitchingToSmallDescriptionShouldBeCorrect()
+        {
+            Fryceritops fr = new Fryceritops();
+            fr.Size = Size.Large;
+            fr.Size = Size.Small;
+            Assert.Equal("Small Fryceritops", fr.Description);
+        }
+
+        [Fact]
+        public void SwitchingToMediumDescriptionShouldBeCorrect()
+        {
+            Fryceritops fr = new Fryceritops();
+            fr.Size = Size.Medium;
+            Assert.Equal("Medium Fryceritops", fr.Description);
+        }
+
+        [Fact]
+        public void SwitchingToLargeDescriptionShouldBeCorrect()
+        {
+            Fryceritops fr = new Fryceritops();
+            fr.Size = Size.Large;
+            Assert.Equal("Large Fryceritops", fr.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            Fryceritops fr = new Fryceritops();
+            Assert.Empty(fr.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyEveryone()
+        {
+            Fryceritops fr = new Fryceritops();
+            Assert.PropertyChanged(fr, "Price", () =>
+            {
+                fr.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(fr, "Description", () =>
+            {
+                fr.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(fr, "Calories", () =>
+            {
+                fr.Size = Size.Medium;
+            });
+        }
     }
 }

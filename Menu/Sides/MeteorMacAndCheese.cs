@@ -40,6 +40,10 @@ namespace DinoDiner.Menu
                         this.Calories = 520;
                         break;
                 }
+
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
         }
 
@@ -77,6 +81,18 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return Size.ToString() + " Meteor Mac and Cheese";
+        }
+
+        /// <summary>
+        /// Indicates if there are any special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
         }
     }
 }

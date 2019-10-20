@@ -98,13 +98,38 @@ namespace MenuTest
         {
             DinoNuggets dn = new DinoNuggets();
             dn.AddNugget();
-            Assert.Contains("1 Extra Nugget", dn.Special);
+            Assert.Contains("1 Extra Nuggets", dn.Special);
         }
 
         [Fact]
         public void SpecialShouldReflectAddingMulipleNuggets()
         {
+            DinoNuggets dn = new DinoNuggets();
+            dn.AddNugget();
+            dn.AddNugget();
+            dn.AddNugget();
+            Assert.Contains("3 Extra Nuggets", dn.Special);
+        }
 
+        [Fact]
+        public void AddingNuggetShouldNotifySpecialAndIngredientChange()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Special", () =>
+            {
+                dn.AddNugget();
+            });
+            Assert.PropertyChanged(dn, "Ingredients", () =>
+            {
+                dn.AddNugget();
+            });
+        }
+
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.Equal("Dino-Nuggets", dn.Description);
         }
     }
 }

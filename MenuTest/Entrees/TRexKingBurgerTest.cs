@@ -107,6 +107,216 @@ namespace MenuTest
             Assert.DoesNotContain<string>("Mayo", trex.Ingredients);
         }
 
-    }
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            Assert.Equal("T-Rex King Burger", tr.Description);
+        }
 
+        [Fact]
+        public void SpecialShouldStartEmpty()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            Assert.Empty(tr.Special);
+        }
+
+        [Fact]
+        public void HoldingBunShouldAddToSpecial()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            tr.HoldBun();
+            Assert.Contains("Hold Bun", tr.Special);
+        }
+
+        [Fact]
+        public void HoldingLettuceShouldAddToSpecial()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            tr.HoldLettuce();
+            Assert.Contains("Hold Lettuce", tr.Special);
+        }
+
+        [Fact]
+        public void HoldingTomatoShouldAddToSpecial()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            tr.HoldTomato();
+            Assert.Contains("Hold Tomato", tr.Special);
+        }
+
+        [Fact]
+        public void HoldingOnionShouldAddToSpecial()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            tr.HoldOnion();
+            Assert.Contains("Hold Onion", tr.Special);
+        }
+
+        [Fact]
+        public void HoldingPickleShouldAddToSpecial()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            tr.HoldPickle();
+            Assert.Contains("Hold Pickle", tr.Special);
+        }
+
+        [Fact]
+        public void HoldingKetchupShouldAddToSpecial()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            tr.HoldKetchup();
+            Assert.Contains("Hold Ketchup", tr.Special);
+        }
+
+        [Fact]
+        public void HoldingMustardShouldAddToSpecial()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            tr.HoldMustard();
+            Assert.Contains("Hold Mustard", tr.Special);
+        }
+
+        [Fact]
+        public void HoldingMayoShouldAddToSpecial()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            tr.HoldMayo();
+            Assert.Contains("Hold Mayo", tr.Special);
+        }
+
+        [Fact]
+        public void HoldingAllShouldAddToSpecial()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            tr.HoldBun();
+            tr.HoldKetchup();
+            tr.HoldLettuce();
+            tr.HoldMayo();
+            tr.HoldMustard();
+            tr.HoldOnion();
+            tr.HoldPickle();
+            tr.HoldTomato();
+            Assert.Contains("Hold Bun", tr.Special);
+            Assert.Contains("Hold Ketchup", tr.Special);
+            Assert.Contains("Hold Lettuce", tr.Special);
+            Assert.Contains("Hold Mayo", tr.Special);
+            Assert.Contains("Hold Mustard", tr.Special);
+            Assert.Contains("Hold Onion", tr.Special);
+            Assert.Contains("Hold Pickle", tr.Special);
+            Assert.Contains("Hold Tomato", tr.Special);
+        }
+
+        [Fact]
+        public void HoldingBunShouldNotifySpecialAndIngredients()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            Assert.PropertyChanged(tr, "Special", () =>
+            {
+                tr.HoldBun();
+            });
+            Assert.PropertyChanged(tr, "Ingredients", () =>
+            {
+                tr.HoldBun();
+            });
+        }
+
+        [Fact]
+        public void HoldingKetchupShouldNotifySpecialAndIngredients()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            Assert.PropertyChanged(tr, "Special", () =>
+            {
+                tr.HoldKetchup();
+            });
+            Assert.PropertyChanged(tr, "Ingredients", () =>
+            {
+                tr.HoldKetchup();
+            });
+        }
+
+        [Fact]
+        public void HoldingLettuceShouldNotifySpecialAndIngredients()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            Assert.PropertyChanged(tr, "Special", () =>
+            {
+                tr.HoldLettuce();
+            });
+            Assert.PropertyChanged(tr, "Ingredients", () =>
+            {
+                tr.HoldLettuce();
+            });
+        }
+
+        [Fact]
+        public void HoldingMayoShouldNotifySpecialAndIngredients()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            Assert.PropertyChanged(tr, "Special", () =>
+            {
+                tr.HoldMayo();
+            });
+            Assert.PropertyChanged(tr, "Ingredients", () =>
+            {
+                tr.HoldMayo();
+            });
+        }
+
+        [Fact]
+        public void HoldingMustardShouldNotifySpecialAndIngredients()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            Assert.PropertyChanged(tr, "Special", () =>
+            {
+                tr.HoldMustard();
+            });
+            Assert.PropertyChanged(tr, "Ingredients", () =>
+            {
+                tr.HoldMustard();
+            });
+        }
+
+        [Fact]
+        public void HoldingOnionShouldNotifySpecialAndIngredients()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            Assert.PropertyChanged(tr, "Special", () =>
+            {
+                tr.HoldOnion();
+            });
+            Assert.PropertyChanged(tr, "Ingredients", () =>
+            {
+                tr.HoldOnion();
+            });
+        }
+
+        [Fact]
+        public void HoldingPickleShouldNotifySpecialAndIngredients()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            Assert.PropertyChanged(tr, "Special", () =>
+            {
+                tr.HoldPickle();
+            });
+            Assert.PropertyChanged(tr, "Ingredients", () =>
+            {
+                tr.HoldPickle();
+            });
+        }
+
+        [Fact]
+        public void HoldingTomatoShouldNotifySpecialAndIngredients()
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            Assert.PropertyChanged(tr, "Special", () =>
+            {
+                tr.HoldTomato();
+            });
+            Assert.PropertyChanged(tr, "Ingredients", () =>
+            {
+                tr.HoldTomato();
+            });
+        }
+    }
 }

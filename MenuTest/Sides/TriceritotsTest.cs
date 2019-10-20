@@ -83,5 +83,62 @@ namespace MenuTest.Sides
             tt.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, tt.Size);
         }
+
+        [Fact]
+        public void DescriptionDefaultShouldBeCorrect()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.Equal("Small Triceritots", tt.Description);
+        }
+
+        [Fact]
+        public void SwitchingToSmallDescriptionShouldBeCorrect()
+        {
+            Triceritots tt = new Triceritots();
+            tt.Size = Size.Large;
+            tt.Size = Size.Small;
+            Assert.Equal("Small Triceritots", tt.Description);
+        }
+
+        [Fact]
+        public void SwitchingToMediumDescriptionShouldBeCorrect()
+        {
+            Triceritots tt = new Triceritots();
+            tt.Size = Size.Medium;
+            Assert.Equal("Medium Triceritots", tt.Description);
+        }
+
+        [Fact]
+        public void SwitchingToLargeDescriptionShouldBeCorrect()
+        {
+            Triceritots tt = new Triceritots();
+            tt.Size = Size.Large;
+            Assert.Equal("Large Triceritots", tt.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.Empty(tt.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyEveryone()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Price", () =>
+            {
+                tt.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(tt, "Description", () =>
+            {
+                tt.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(tt, "Calories", () =>
+            {
+                tt.Size = Size.Medium;
+            });
+        }
     }
 }
