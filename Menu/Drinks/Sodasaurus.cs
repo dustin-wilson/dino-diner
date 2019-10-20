@@ -11,11 +11,20 @@ namespace DinoDiner.Menu
     public class Sodasaurus : Drink
     {   // Private backing for Size
         private Size size;
+        private SodasaurusFlavor flavor;
 
         /// <summary>
         /// Property which returns and set flavor
         /// </summary>
-        public SodasaurusFlavor Flavor { get; set; }
+        public SodasaurusFlavor Flavor
+        {
+            get { return flavor; }
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChanged("Description");
+            }
+        }
         
         /// <summary>
         /// Property to get and set size as well as change
@@ -44,6 +53,10 @@ namespace DinoDiner.Menu
                         Calories = 208;
                         break;
                 }
+
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
         }
 
@@ -80,6 +93,16 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return this.Size.ToString() + " " + this.Flavor.ToString() + " Sodasaurus";
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
         }
     }
 }

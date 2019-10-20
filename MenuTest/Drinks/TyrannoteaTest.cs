@@ -130,5 +130,144 @@ namespace MenuTest.Drinks
             List<string> ingredients = tea.Ingredients;
             Assert.Contains<string>("Cane Sugar", ingredients);
         }
+
+        [Fact]
+        public void DescriptionDefaultShouldBeCorrect()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            Assert.Equal("Small Tyrannotea", tt.Description);
+        }
+
+        [Fact]
+        public void SwitchingToSmallDescriptionShouldBeCorrect()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.Size = Size.Large;
+            tt.Size = Size.Small;
+            Assert.Equal("Small Tyrannotea", tt.Description);
+        }
+
+        [Fact]
+        public void SwitchingToMediumDescriptionShouldBeCorrect()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.Size = Size.Medium;
+            Assert.Equal("Medium Tyrannotea", tt.Description);
+        }
+
+        [Fact]
+        public void SwitchingToLargeDescriptionShouldBeCorrect()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.Size = Size.Large;
+            Assert.Equal("Large Tyrannotea", tt.Description);
+        }
+
+        [Fact]
+        public void SwitchingToSweetSmallDescriptionShouldBeCorrect()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.Size = Size.Large;
+            tt.Size = Size.Small;
+            tt.Sweet = true;
+            Assert.Equal("Small Sweet Tyrannotea", tt.Description);
+        }
+
+        [Fact]
+        public void SwitchingToSweetMediumDescriptionShouldBeCorrect()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.Size = Size.Medium;
+            tt.Sweet = true;
+            Assert.Equal("Medium Sweet Tyrannotea", tt.Description);
+        }
+
+        [Fact]
+        public void SwitchingToSweetLargeDescriptionShouldBeCorrect()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.Size = Size.Large;
+            tt.Sweet = true;
+            Assert.Equal("Large Sweet Tyrannotea", tt.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            Assert.Empty(tt.Special);
+        }
+
+        [Fact]
+        public void AddLemonShouldAddToSpecial()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.AddLemon();
+            Assert.Contains("Add Lemon", tt.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldAddToSpecial()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.HoldIce();
+            Assert.Contains("Hold Ice", tt.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyEveryone()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            Assert.PropertyChanged(tt, "Price", () =>
+            {
+                tt.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(tt, "Description", () =>
+            {
+                tt.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(tt, "Calories", () =>
+            {
+                tt.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void AddLemonShouldNotifySpecial()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            Assert.PropertyChanged(tt, "Special", () =>
+            {
+                tt.AddLemon();
+            });
+            Assert.PropertyChanged(tt, "Ingredients", () =>
+            {
+                tt.AddLemon();
+            });
+        }
+
+        [Fact]
+        public void HoldIceShouldNotifySpecial()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            Assert.PropertyChanged(tt, "Special", () =>
+            {
+                tt.HoldIce();
+            });
+        }
+
+        [Fact]
+        public void ChangingSweetShouldNotifyDescription()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            Assert.PropertyChanged(tt, "Description", () =>
+            {
+                tt.Sweet = true;
+            });
+            Assert.PropertyChanged(tt, "Ingredients", () =>
+            {
+                tt.Sweet = true;
+            });
+        }
     }
 }

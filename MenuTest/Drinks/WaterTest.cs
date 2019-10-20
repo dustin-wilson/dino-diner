@@ -78,5 +78,84 @@ namespace MenuTest.Drinks
             Assert.Contains("Water", ingredients);
             Assert.DoesNotContain("Lemon", ingredients);
         }
+
+        [Fact]
+        public void DescriptionDefaultShouldBeCorrect()
+        {
+            Water w = new Water();
+            Assert.Equal("Small Water", w.Description);
+        }
+
+        [Fact]
+        public void SwitchingToSmallDescriptionShouldBeCorrect()
+        {
+            Water w = new Water();
+            w.Size = Size.Large;
+            w.Size = Size.Small;
+            Assert.Equal("Small Water", w.Description);
+        }
+
+        [Fact]
+        public void SwitchingToMediumDescriptionShouldBeCorrect()
+        {
+            Water w = new Water();
+            w.Size = Size.Medium;
+            Assert.Equal("Medium Water", w.Description);
+        }
+
+        [Fact]
+        public void SwitchingToLargeDescriptionShouldBeCorrect()
+        {
+            Water w = new Water();
+            w.Size = Size.Large;
+            Assert.Equal("Large Water", w.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            Water w = new Water();
+            Assert.Empty(w.Special);
+        }
+
+        [Fact]
+        public void AddLemonShouldBeReflectedInSpecial()
+        {
+            Water w = new Water();
+            w.AddLemon();
+            Assert.Contains("Add Lemon", w.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldBeInSpecial()
+        {
+            Water w = new Water();
+            w.HoldIce();
+            Assert.Contains("Hold Ice", w.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyEveryone()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Description", () =>
+            {
+                w.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void AddLemonShouldNotifySpecial()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Special", () =>
+            {
+                w.AddLemon();
+            });
+            Assert.PropertyChanged(w, "Special", () =>
+            {
+                w.HoldIce();
+            });
+        }
     }
 }

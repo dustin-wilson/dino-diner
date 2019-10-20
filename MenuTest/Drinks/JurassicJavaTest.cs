@@ -76,5 +76,136 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Water", ingredients);
             Assert.Contains<string>("Coffee", ingredients);
         }
+
+        [Fact]
+        public void DescriptionDefaultShouldBeCorrect()
+        {
+            JurassicJava jv = new JurassicJava();
+            Assert.Equal("Small Jurassic Java", jv.Description);
+        }
+
+        [Fact]
+        public void SwitchingToSmallDescriptionShouldBeCorrect()
+        {
+            JurassicJava jv = new JurassicJava();
+            jv.Size = Size.Large;
+            jv.Size = Size.Small;
+            Assert.Equal("Small Jurassic Java", jv.Description);
+        }
+
+        [Fact]
+        public void SwitchingToMediumDescriptionShouldBeCorrect()
+        {
+            JurassicJava jv = new JurassicJava();
+            jv.Size = Size.Medium;
+            Assert.Equal("Medium Jurassic Java", jv.Description);
+        }
+
+        [Fact]
+        public void SwitchingToLargeDescriptionShouldBeCorrect()
+        {
+            JurassicJava jv = new JurassicJava();
+            jv.Size = Size.Large;
+            Assert.Equal("Large Jurassic Java", jv.Description);
+        }
+
+        [Fact]
+        public void SwitchingToDecafSmallDescriptionShouldBeCorrect()
+        {
+            JurassicJava jv = new JurassicJava();
+            jv.Size = Size.Large;
+            jv.Size = Size.Small;
+            jv.Decaf = true;
+            Assert.Equal("Small Decaf Jurassic Java", jv.Description);
+        }
+
+        [Fact]
+        public void SwitchingToDecafMediumDescriptionShouldBeCorrect()
+        {
+            JurassicJava jv = new JurassicJava();
+            jv.Size = Size.Medium;
+            jv.Decaf = true;
+            Assert.Equal("Medium Decaf Jurassic Java", jv.Description);
+        }
+
+        [Fact]
+        public void SwitchingToDecafLargeDescriptionShouldBeCorrect()
+        {
+            JurassicJava jv = new JurassicJava();
+            jv.Size = Size.Large;
+            jv.Decaf = true;
+            Assert.Equal("Large Decaf Jurassic Java", jv.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            JurassicJava jv = new JurassicJava();
+            Assert.Empty(jv.Special);
+        }
+
+        [Fact]
+        public void LeaveRoomForCreamShouldAddToSpecial()
+        {
+            JurassicJava jv = new JurassicJava();
+            jv.LeaveRoomForCream();
+            Assert.Contains("Leave Room For Cream", jv.Special);
+        }
+
+        [Fact]
+        public void AddIceShouldAddToSpecial()
+        {
+            JurassicJava jv = new JurassicJava();
+            jv.AddIce();
+            Assert.Contains("Add Ice", jv.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyEveryone()
+        {
+            JurassicJava jv = new JurassicJava();
+            Assert.PropertyChanged(jv, "Price", () =>
+            {
+                jv.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(jv, "Description", () =>
+            {
+                jv.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(jv, "Calories", () =>
+            {
+                jv.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void LeaveRoomForCreamShouldNotifySpecial()
+        {
+            JurassicJava jv = new JurassicJava();
+            Assert.PropertyChanged(jv, "Special", () =>
+            {
+                jv.LeaveRoomForCream();
+            });
+        }
+
+        [Fact]
+        public void AddIceShouldNotifySpecial()
+        {
+            JurassicJava jv = new JurassicJava();
+            Assert.PropertyChanged(jv, "Special", () =>
+            {
+                jv.AddIce();
+            });
+        }
+
+        [Fact]
+        public void ChangingDecafShouldNotifyDescription()
+        {
+            JurassicJava jv = new JurassicJava();
+            Assert.PropertyChanged(jv, "Description", () =>
+            {
+                jv.Decaf = true;
+            });
+        }
     }
 }

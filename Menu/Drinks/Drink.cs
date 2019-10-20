@@ -5,18 +5,30 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class Drink : IMenuItem
+    public class Drink : IMenuItem, INotifyPropertyChanged, IOrderItem
     {
         // Private backing for Ingredients
-        protected List<string> ingredients = new List<string>(); 
+        protected List<string> ingredients = new List<string>();
+
+        // Size private backing
+        private Size size = Size.Small;
 
         /// <summary>
         /// Gets or sets the size
         /// </summary>
-        public virtual Size Size { get; set; }
+        public virtual Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                NotifyOfPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// Gets or sets the price
@@ -44,6 +56,31 @@ namespace DinoDiner.Menu
         public void HoldIce()
         {
             Ice = false;
+            NotifyOfPropertyChanged("Special");
+        }
+
+        /// <summary>
+        /// Gives Description of the item
+        /// </summary>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// String containing in there is anything special about the order
+        /// </summary>
+        public virtual string[] Special { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Invoke property changed to notify gui
+        /// </summary>
+        /// <param name="propertyName">Name of property changing</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

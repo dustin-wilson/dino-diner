@@ -15,10 +15,22 @@ namespace DinoDiner.Menu
         /// </summary>
         public bool RoomForCream { get; set; } = false;
 
+        private bool decaf = false;
         /// <summary>
         /// Boolean for if coffee is to be decaf
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get
+            {
+                return decaf;
+            }
+            set
+            {
+                decaf = value;
+                NotifyOfPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// Sets RoomForCream to true
@@ -26,6 +38,7 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             RoomForCream = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -34,6 +47,7 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         private Size size;
@@ -64,6 +78,10 @@ namespace DinoDiner.Menu
                         Calories = 8;
                         break;
                 }
+
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -124,6 +142,20 @@ namespace DinoDiner.Menu
                 }
             }
             return base.ToString();
+        }
+
+        /// <summary>
+        /// Special order instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice) special.Add("Add Ice");
+                if (RoomForCream) special.Add("Leave Room For Cream");
+                return special.ToArray();
+            }
         }
     }
 }

@@ -165,5 +165,100 @@ namespace MenuTest.Drinks
             Assert.Contains("Natural Flavors", ingredients);
             Assert.Contains("Cane Sugar", ingredients);
         }
+
+        [Fact]
+        public void DescriptionDefaultShouldBeCorrect()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.Equal("Small Cola Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void SwitchingToSmallDescriptionShouldBeCorrect()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.Size = Size.Large;
+            s.Size = Size.Small;
+            Assert.Equal("Small Cola Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void SwitchingToMediumDescriptionShouldBeCorrect()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.Size = Size.Medium;
+            Assert.Equal("Medium Cola Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void SwitchingToLargeDescriptionShouldBeCorrect()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.Size = Size.Large;
+            Assert.Equal("Large Cola Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void ChangingFlavorShouldReflectInDescription()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.Flavor = SodasaurusFlavor.Lime;
+            Assert.Equal("Small Lime Sodasaurus", s.Description);
+            s.Flavor = SodasaurusFlavor.Vanilla;
+            Assert.Equal("Small Vanilla Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.Empty(s.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldAddToSpecial()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.HoldIce();
+            Assert.Contains("Hold Ice", s.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyEveryone()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.PropertyChanged(s, "Price", () =>
+            {
+                s.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(s, "Description", () =>
+            {
+                s.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(s, "Calories", () =>
+            {
+                s.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingFlavorShouldNotifyDescription()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.PropertyChanged(s, "Description", () =>
+            {
+                s.Flavor = SodasaurusFlavor.Orange;
+            });
+        }
+
+        [Fact]
+        public void HoldingIceShouldNotifySpecial()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.PropertyChanged(s, "Special", () =>
+            {
+                s.HoldIce();
+            });
+        }
     }
 }

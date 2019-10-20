@@ -21,6 +21,7 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -45,9 +46,25 @@ namespace DinoDiner.Menu
             Price = 0.10;
             Calories = 0;
         }
+
+        /// <summary>
+        /// Correct ToString method
+        /// </summary>
+        /// <returns>Formatted string</returns>
         public override string ToString()
         {
             return Size.ToString() + " Water";
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Lemon) special.Add("Add Lemon");
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
         }
     }
 }

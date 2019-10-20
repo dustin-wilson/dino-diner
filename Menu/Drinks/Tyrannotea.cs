@@ -16,15 +16,39 @@ namespace DinoDiner.Menu
         // Private backing for Calories
         private uint calories;
 
+        // Private backing for Sweet
+        private bool sweet = false;
+
+        //Private backing for Lemon
+        private bool lemon = false;
+
         /// <summary>
         /// Property of if tea is sweet
         /// </summary>
-        public bool Sweet { get; set; } = false;
+        public bool Sweet
+        {
+            get { return sweet; }
+            set
+            {
+                sweet = value;
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Ingredients");
+            }
+        }
 
         /// <summary>
         /// Property of if should add lemon
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set
+            {
+                lemon = value;
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Ingredients");
+            }
+        }
 
         /// <summary>
         /// Get and Set the size
@@ -52,6 +76,10 @@ namespace DinoDiner.Menu
                         calories = 32;
                         break;
                 }
+
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -109,6 +137,17 @@ namespace DinoDiner.Menu
         {
             if (Sweet) return Size.ToString() + " Sweet Tyrannotea";
             else return Size.ToString() + " Tyrannotea";
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Lemon) special.Add("Add Lemon");
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
         }
     }
 }
