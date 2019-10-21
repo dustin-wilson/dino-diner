@@ -55,6 +55,9 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="OrderList.xaml.cs">
+      <DependentUpon>OrderList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SideSelection.xaml.cs">
       <DependentUpon>SideSelection.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="OrderList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SideSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,7 +150,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\DinoDiner-16.png" />
+    <Resource Include="Images\DinoDiner-17.png" />
+    <Resource Include="Images\DinoDiner-18.png" />
+    <Resource Include="Images\DinoDiner-19.png" />
+    <Resource Include="Images\DinoDiner-20.png" />
+    <Resource Include="Images\DinoDiner-21.png" />
+    <Resource Include="Images\DinoDiner-22.png" />
+    <Resource Include="Images\DinoDiner-23.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\DinoDiner-01.png" />
     <Resource Include="Images\DinoDiner-02.png" />
@@ -160,6 +176,12 @@
     <Resource Include="Images\DinoDiner-13.png" />
     <Resource Include="Images\DinoDiner-14.png" />
     <Resource Include="Images\DinoDiner-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Menu\Menu.csproj">
+      <Project>{2f5f801d-c838-4c96-a2be-a40c4dffb719}</Project>
+      <Name>Menu</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

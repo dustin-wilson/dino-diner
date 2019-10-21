@@ -13,7 +13,7 @@ namespace MenuTest
         public void EntreePriceShouldBeCorrect()
         {
             Entree entree = new PrehistoricPBJ();
-            Order order = new Order(.10);
+            Order order = new Order();
             ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
             items.Add(entree);
             order.Items = items;
@@ -27,7 +27,7 @@ namespace MenuTest
             Entree nugget = new DinoNuggets();
             Side fry = new Fryceritops();
             Drink water = new Water();
-            Order order = new Order(.10);
+            Order order = new Order();
             ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
             items.Add(entree);
             items.Add(nugget);
@@ -42,11 +42,11 @@ namespace MenuTest
         {
             Entree burger = new TRexKingBurger();
             CretaceousCombo combo = new CretaceousCombo(burger);
-            Order order = new Order(.12);
+            Order order = new Order();
             ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
             items.Add(combo);
             order.Items = items;
-            Assert.Equal(11.97, order.TotalCost, 2);
+            Assert.Equal(11.76, order.TotalCost, 2);
         }
 
         [Fact]
@@ -55,18 +55,18 @@ namespace MenuTest
             Entree burger = new TRexKingBurger();
             CretaceousCombo combo = new CretaceousCombo(burger);
             combo.Size = Size.Large;
-            Order order = new Order(.12);
+            Order order = new Order();
             ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
             items.Add(combo);
             order.Items = items;
-            Assert.Equal(14.17, order.TotalCost, 2);
+            Assert.Equal(13.92, order.TotalCost, 2);
         }
 
         [Fact]
         public void SubtotalCostCannotBeNegative()
         {
             EntreeTestNegative entree = new EntreeTestNegative();
-            Order order = new Order(.09);
+            Order order = new Order();
             ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
             items.Add(entree);
             order.Items = items;

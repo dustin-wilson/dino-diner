@@ -14,7 +14,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Collection of the different items
         /// </summary>
-        public ObservableCollection<IOrderItem> Items { get; set; }
+        public ObservableCollection<IOrderItem> Items { get; set; } = new ObservableCollection<IOrderItem>();
 
         /// <summary>
         /// Cost of items
@@ -39,7 +39,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Rate of sales tax
         /// </summary>
-        public double SalesTaxRate { get; protected set; }
+        public double SalesTaxRate { get; protected set; } = .10;
         
         /// <summary>
         /// Cost of tax
@@ -55,15 +55,6 @@ namespace DinoDiner.Menu
         public double TotalCost
         {
             get { return SalesTaxCost + SubtotalCost; }
-        }
-
-        /// <summary>
-        /// Public Constructor
-        /// </summary>
-        /// <param name="rate">Sales tax rate</param>
-        public Order(double rate)
-        {
-            SalesTaxRate = rate;
         }
     }
 }
