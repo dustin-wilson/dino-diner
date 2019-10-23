@@ -79,9 +79,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <RadioButton Grid.Row="0" IsChecked="True" Content="Small" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <RadioButton Grid.Row="1" IsChecked="False" Content="Medium" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <RadioButton Grid.Row="2" IsChecked="False" Content="Large" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <RadioButton Grid.Row="0" IsChecked="True" Content="Small" VerticalAlignment="Center" HorizontalAlignment="Center" Click="OnChangeSize" Tag="Small"/>
+            <RadioButton Grid.Row="1" IsChecked="False" Content="Medium" VerticalAlignment="Center" HorizontalAlignment="Center" Click="OnChangeSize" Tag="Medium"/>
+            <RadioButton Grid.Row="2" IsChecked="False" Content="Large" VerticalAlignment="Center" HorizontalAlignment="Center" Click="OnChangeSize" Tag="Large"/>
         </Grid>
         
         <!--Third Column For Special Settings-->

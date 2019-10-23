@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -24,6 +25,8 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        private Drink drink;
+
         /// <summary>
         /// Publick Constructor
         /// </summary>
@@ -50,6 +53,12 @@ namespace PointOfSale
             tea.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             coffee.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             water.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+
+            if (DataContext is Order order)
+            {
+                drink = new Sodasaurus();
+                order.Items.Add(drink);
+            }
         }
 
         /// <summary>
@@ -63,11 +72,13 @@ namespace PointOfSale
             {
                 iceButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
                 iceButton.Content = "No Ice";
+                drink.Ice = false;
             }
             else
             {
                 iceButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
                 iceButton.Content = "Includes Ice";
+                drink.Ice = true;
             }
         }
 
@@ -82,11 +93,27 @@ namespace PointOfSale
             {
                 lemonButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
                 lemonButton.Content = "Includes Lemon";
+                if(drink is Water water)
+                {
+                    water.Lemon = true;
+                }
+                if(drink is Tyrannotea tea)
+                {
+                    tea.Lemon = true;
+                }
             }
             else
             {
                 lemonButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
                 lemonButton.Content = "No Lemon";
+                if (drink is Water water)
+                {
+                    water.Lemon = false;
+                }
+                if (drink is Tyrannotea tea)
+                {
+                    tea.Lemon = false;
+                }
             }
         }
 
@@ -102,11 +129,19 @@ namespace PointOfSale
             {
                 sweetButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
                 sweetButton.Content = "Sweet Tea";
+                if(drink is Tyrannotea tea)
+                {
+                    tea.Sweet = true;
+                }
             }
             else
             {
                 sweetButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
                 sweetButton.Content = "Unsweetened Tea";
+                if (drink is Tyrannotea tea)
+                {
+                    tea.Sweet = false;
+                }
             }
         }
 
@@ -128,6 +163,12 @@ namespace PointOfSale
             tea.Background = new SolidColorBrush(Color.FromRgb(173, 216, 230));
             coffee.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             water.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+
+            if (DataContext is Order order)
+            {
+                drink = new Tyrannotea();
+                order.Items.Add(drink);
+            }
         }
 
         /// <summary>
@@ -148,6 +189,12 @@ namespace PointOfSale
             tea.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             coffee.Background = new SolidColorBrush(Color.FromRgb(173, 216, 230));
             water.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+
+            if (DataContext is Order order)
+            {
+                drink = new JurassicJava();
+                order.Items.Add(drink);
+            }
         }
 
         /// <summary>
@@ -168,6 +215,12 @@ namespace PointOfSale
             tea.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             coffee.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             water.Background = new SolidColorBrush(Color.FromRgb(173, 216, 230));
+
+            if (DataContext is Order order)
+            {
+                drink = new Water();
+                order.Items.Add(drink);
+            }
         }
 
 
@@ -182,11 +235,19 @@ namespace PointOfSale
             {
                 creamButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
                 creamButton.Content = "No Room for Cream";
+                if(drink is JurassicJava java)
+                {
+                    java.RoomForCream = false;
+                }
             }
             else
             {
                 creamButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
                 creamButton.Content = "Leave Room for Cream";
+                if (drink is JurassicJava java)
+                {
+                    java.RoomForCream = true;
+                }
             }
         }
 
@@ -201,11 +262,19 @@ namespace PointOfSale
             {
                 cafButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
                 cafButton.Content = "Decaf";
+                if(drink is JurassicJava java)
+                {
+                    java.Decaf = true;
+                }
             }
             else
             {
                 cafButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
                 cafButton.Content = "Caffenated";
+                if (drink is JurassicJava java)
+                {
+                    java.Decaf = false;
+                }
             }
         }
 
@@ -217,6 +286,19 @@ namespace PointOfSale
         private void FlavorSelect(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new FlavorSelection());
+        }
+
+        /// <summary>
+        /// When radio buttons clicked
+        /// </summary>
+        /// <param name="sender">object being sent</param>
+        /// <param name="args">Routed event argument</param>
+        private void OnChangeSize(object sender, RoutedEventArgs args)
+        {
+            if (sender is FrameworkElement element)
+            {
+                drink.Size = (DinoDiner.Menu.Size)Enum.Parse(typeof(DinoDiner.Menu.Size), element.Tag.ToString());
+            }
         }
     }
 }

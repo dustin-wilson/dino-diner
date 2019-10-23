@@ -21,12 +21,12 @@
         <TextBlock Text="Order" FontWeight="Bold" TextAlignment="Right"/>
         <TextBlock Grid.Column="1" Text="#" FontWeight="Bold" TextAlignment="Left" Margin="5,0,0,0"/>
 
-        <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items}">
+        <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items}" Name="OrderItems">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding Path=Description}"/>
-                        <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="{x:Null}" />
+                        <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="{x:Null}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

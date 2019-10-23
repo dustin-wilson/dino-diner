@@ -13,6 +13,8 @@
     <DockPanel>
         <local:OrderList DockPanel.Dock="Right" Width="200" Background="CornflowerBlue"/>
 
-        <Frame Source="MenuCategorySelection.xaml"></Frame>
+        <Frame Source="MenuCategorySelection.xaml" Name="OrderUI"
+               LoadCompleted="OnLoadCompleted"
+               DataContextChanged="OnDataContextChanged"/>
     </DockPanel>
 </Window>

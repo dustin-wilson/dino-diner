@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* MainWindow.xaml.cs
+ * Author: Dustin Wilson
+ */
+ 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,20 +25,44 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             Order order = DataContext as Order;
-            if(order != null)
+        }
+
+        /// <summary>
+        /// Passes DataContext to the next page
+        /// </summary>
+        private void PassDataContentToPage()
+        {
+            if (OrderUI.Content is Page page)
             {
-                order.Items.Add(new PrehistoricPBJ());
-                order.Items.Add(new Sodasaurus());
-                order.Items.Add(new Fryceritops());
-                SteakosaurusBurger sb = new SteakosaurusBurger();
-                sb.HoldBun();
-                sb.HoldPickle();
-                order.Items.Add(sb);
+                page.DataContext = OrderUI.DataContext;
             }
+        }
+
+        /// <summary>
+        /// Method ran once page is loaded
+        /// </summary>
+        /// <param name="sender">object being sent</param>
+        /// <param name="args">Navigation Event Argument</param>
+        private void OnLoadCompleted(object sender, NavigationEventArgs args)
+        {
+            PassDataContentToPage();
+        }
+
+        /// <summary>
+        /// Method ran when DataContext is changed
+        /// </summary>
+        /// <param name="sender">object being sent</param>
+        /// <param name="e">DependencyPropertyChangedEventArgs</param>
+        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            PassDataContentToPage();
         }
     }
 }

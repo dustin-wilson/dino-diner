@@ -85,9 +85,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <RadioButton Content="Small" Grid.Column="0" IsChecked="True"/>
-            <RadioButton Content="Medium" Grid.Column="1"/>
-            <RadioButton Content="Large" Grid.Column="2"/>
+            <RadioButton Content="Small" Grid.Column="0" IsChecked="True" Click="OnChangeSize" Tag="Small"/>
+            <RadioButton Content="Medium" Grid.Column="1" Click="OnChangeSize" Tag="Medium"/>
+            <RadioButton Content="Large" Grid.Column="2" Click="OnChangeSize" Tag="Large"/>
         </Grid>
     </Grid>
 </Page>

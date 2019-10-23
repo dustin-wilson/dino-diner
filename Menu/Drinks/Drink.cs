@@ -45,10 +45,20 @@ namespace DinoDiner.Menu
         /// </summary>
         public virtual List<string> Ingredients { get { return ingredients; } }
 
+        private bool ice = true;
+
         /// <summary>
         /// Indicates whether ice should be added
         /// </summary>
-        public bool Ice { get; set; } = true;
+        public bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                NotifyOfPropertyChanged("Special");
+            }
+        }
 
         /// <summary>
         /// Sets it so ice will not be an added ingredient

@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -32,6 +33,8 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        private DinoDiner.Menu.Side side;
+
         /// <summary>
         /// Fry Button click
         /// </summary>
@@ -43,6 +46,12 @@ namespace PointOfSale
             mac.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             moz.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             tot.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+
+            if (DataContext is Order order)
+            {
+                side = new Fryceritops();
+                order.Items.Add(side);
+            }
         }
 
         /// <summary>
@@ -56,6 +65,12 @@ namespace PointOfSale
             fries.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             moz.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             tot.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+
+            if (DataContext is Order order)
+            {
+                side = new MeteorMacAndCheese();
+                order.Items.Add(side);
+            }
         }
 
         /// <summary>
@@ -69,8 +84,14 @@ namespace PointOfSale
             mac.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             fries.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             tot.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-        }
 
+            if (DataContext is Order order)
+            {
+                side = new MezzorellaSticks();
+                order.Items.Add(side);
+            }
+        }
+        
         /// <summary>
         /// Tot Button click
         /// </summary>
@@ -82,6 +103,25 @@ namespace PointOfSale
             mac.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             moz.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             fries.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+
+            if(DataContext is Order order)
+            {
+                side = new Triceritots();
+                order.Items.Add(side);
+            }
+        }
+
+        /// <summary>
+        /// When radio buttons clicked
+        /// </summary>
+        /// <param name="sender">object being sent</param>
+        /// <param name="args">Routed event argument</param>
+        private void OnChangeSize(object sender, RoutedEventArgs args)
+        {
+            if(sender is FrameworkElement element)
+            {
+                side.Size = (DinoDiner.Menu.Size)Enum.Parse(typeof(DinoDiner.Menu.Size), element.Tag.ToString());
+            }
         }
     }
 }

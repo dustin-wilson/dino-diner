@@ -71,6 +71,5 @@ namespace PointOfSale
         {
             NavigationService.Navigate(new SideSelection());
         }
-
     }
 }
