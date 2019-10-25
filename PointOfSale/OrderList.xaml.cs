@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -40,6 +41,21 @@ namespace PointOfSale
         private void OnSelectionChanged(Object sender, EventArgs args)
         {
             
+        }
+
+        private void RemoveItem(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                if (sender is FrameworkElement element)
+                {
+                    if (element.DataContext is IOrderItem item)
+                    {
+                        //order.Items.Remove(item);
+                        order.Remove(item);
+                    }
+                }
+            }
         }
     }
 }

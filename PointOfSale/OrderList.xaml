@@ -24,8 +24,15 @@
         <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items}" Name="OrderItems">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=Description}"/>
+                    <StackPanel MinWidth="190">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Path=Description}"/>
+                            <Button Grid.Column="1" Content="X" Click="RemoveItem" Background="Red" Foreground="White"/>
+                        </Grid>
                         <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="{x:Null}"/>
                     </StackPanel>
                 </DataTemplate>

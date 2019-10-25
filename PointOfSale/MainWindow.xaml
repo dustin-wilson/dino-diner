@@ -11,7 +11,7 @@
         <menu:Order/>
     </Window.DataContext>
     <DockPanel>
-        <local:OrderList DockPanel.Dock="Right" Width="200" Background="CornflowerBlue"/>
+        <local:OrderList DockPanel.Dock="Right" MinWidth="200" Background="CornflowerBlue"/>
 
         <Frame Source="MenuCategorySelection.xaml" Name="OrderUI"
                LoadCompleted="OnLoadCompleted"

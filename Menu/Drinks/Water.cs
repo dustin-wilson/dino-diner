@@ -10,10 +10,21 @@ namespace DinoDiner.Menu
 {
     public class Water : Drink
     {
+        bool lemon = false;
+
         /// <summary>
-        ///  Boolean property for lemon
+        /// Property of if should add lemon
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set
+            {
+                lemon = value;
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Ingredients");
+            }
+        }
 
         /// <summary>
         /// Sets lemon to true
