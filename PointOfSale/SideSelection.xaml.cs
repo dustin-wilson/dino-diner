@@ -125,6 +125,7 @@ namespace PointOfSale
             if(sender is FrameworkElement element)
             {
                 side.Size = (DinoDiner.Menu.Size)Enum.Parse(typeof(DinoDiner.Menu.Size), element.Tag.ToString());
+                NavigationService.Navigate(new MenuCategorySelection());
             }
         }
     }

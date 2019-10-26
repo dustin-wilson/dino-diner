@@ -30,43 +30,43 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Column="1" HorizontalAlignment="Center" FontSize="20">Add To Order</TextBlock>
-        <Button Grid.Row="1" Grid.Column="0" Background="White">
+        <Button Grid.Row="1" Grid.Column="0" Background="White" Click="BrontoSelect">
             <StackPanel>
                 <Image Source="Images/DinoDiner-01.png" Width="90"/>
                 <TextBlock Text="Brontowurst" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Grid.Row="1" Grid.Column="1" Background="White">
+        <Button Grid.Row="1" Grid.Column="1" Background="White" Click="DinoNuggetSelect">
             <StackPanel>
                 <Image Source="Images/DinoDiner-02.png" Width="90"/>
                 <TextBlock Text="Dino-Nuggets" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Grid.Row="1" Grid.Column="2" Background="White">
+        <Button Grid.Row="1" Grid.Column="2" Background="White" Click="PBJSelect">
             <StackPanel>
                 <Image Source="Images/DinoDiner-03.png" Width="90"/>
                 <TextBlock Text="Prehistoric PB&amp;J" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Grid.Row="2" Grid.Column="0" Background="White">
+        <Button Grid.Row="2" Grid.Column="0" Background="White" Click="WingSelect">
             <StackPanel>
                 <Image Source="Images/DinoDiner-04.png" Width="90"/>
                 <TextBlock Text="Pterodactyl Wings" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Grid.Row="2" Grid.Column="1" Background="White">
+        <Button Grid.Row="2" Grid.Column="1" Background="White" Click="SteakosaurusSelect">
             <StackPanel>
                 <Image Source="Images/DinoDiner-05.png" Width="90"/>
-                <TextBlock Text="Steakosarus Buger" HorizontalAlignment="Center"/>
+                <TextBlock Text="Steakosau rus Buger" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Grid.Row="2" Grid.Column="2" Background="White">
+        <Button Grid.Row="2" Grid.Column="2" Background="White" Click="TRexKingSelect">
             <StackPanel>
                 <Image Source="Images/DinoDiner-06.png" Width="90"/>
                 <TextBlock Text="T-Rex King Burger" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Grid.Row="3" Grid.Column="1" Background="White">
+        <Button Grid.Row="3" Grid.Column="1" Background="White" Click ="WrapSelect">
             <StackPanel>
                 <Image Source="Images/DinoDiner-07.png" Width="90"/>
                 <TextBlock Text="Veloci-Wrap" HorizontalAlignment="Center"/>
