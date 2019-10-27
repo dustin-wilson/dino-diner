@@ -57,7 +57,7 @@
         <Button Grid.Row="2" Grid.Column="1" Background="White" Click="SteakosaurusSelect">
             <StackPanel>
                 <Image Source="Images/DinoDiner-05.png" Width="90"/>
-                <TextBlock Text="Steakosau rus Buger" HorizontalAlignment="Center"/>
+                <TextBlock Text="Steakosaurus Buger" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
         <Button Grid.Row="2" Grid.Column="2" Background="White" Click="TRexKingSelect">

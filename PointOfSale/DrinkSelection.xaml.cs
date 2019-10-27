@@ -28,7 +28,7 @@ namespace PointOfSale
         private Drink drink;
 
         /// <summary>
-        /// Publick Constructor
+        /// Public Constructor
         /// </summary>
         public DrinkSelection()
         {
@@ -57,8 +57,15 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Sodasaurus();
-                //order.Items.Add(drink);
+                Sodasaurus soda = (Sodasaurus)drink;
                 order.Add(drink);
+
+                // Default Properties
+                iceButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
+                iceButton.Content = "Includes Ice";
+                soda.Ice = true;
+
+                soda.Flavor = SodasaurusFlavor.Cola;
             }
         }
 
@@ -168,8 +175,21 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Tyrannotea();
-                //order.Items.Add(drink);
+                Tyrannotea tea = (Tyrannotea)drink;
                 order.Add(drink);
+
+                // Default Properties
+                iceButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
+                iceButton.Content = "Includes Ice";
+                tea.Ice = true;
+
+                lemonButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                lemonButton.Content = "No Lemon";
+                tea.Lemon = false;
+
+                sweetButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                sweetButton.Content = "Unsweetened Tea";
+                tea.Sweet = false;
             }
         }
 
@@ -195,8 +215,21 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new JurassicJava();
-                //order.Items.Add(drink);
+                JurassicJava java = (JurassicJava)drink;
                 order.Add(drink);
+
+                // Default values
+                iceButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                iceButton.Content = "No Ice";
+                java.Ice = false;
+
+                creamButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                creamButton.Content = "No Room for Cream";
+                java.RoomForCream = false;
+
+                cafButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
+                cafButton.Content = "Caffenated";
+                java.Decaf = false;
             }
         }
 
@@ -222,8 +255,17 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Water();
-                //order.Items.Add(drink);
+                Water water = (Water)drink;
                 order.Add(drink);
+
+                // Default Value
+                iceButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
+                iceButton.Content = "Includes Ice";
+                water.Ice = true;
+
+                lemonButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                lemonButton.Content = "No Lemon";
+                water.Lemon = false;
             }
         }
 
@@ -289,7 +331,7 @@ namespace PointOfSale
         /// <param name="e">Routed Event Argument</param>
         private void FlavorSelect(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            NavigationService.Navigate(new FlavorSelection(drink));
         }
 
         /// <summary>
@@ -303,6 +345,16 @@ namespace PointOfSale
             {
                 drink.Size = (DinoDiner.Menu.Size)Enum.Parse(typeof(DinoDiner.Menu.Size), element.Tag.ToString());
             }
+        }
+
+        /// <summary>
+        /// Handles event where done is selected
+        /// </summary>
+        /// <param name="sender">Object being sent</param>
+        /// <param name="e">Routed event argument</param>
+        private void DoneSelect(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

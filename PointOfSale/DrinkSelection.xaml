@@ -93,12 +93,13 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="flavorButton" Grid.Row="0" Content="Flavor" Visibility="Hidden" Click="FlavorSelect"/>
+            <Button x:Name="flavorButton" Grid.Row="0" Content="Flavor" Visibility="Hidden" Click="FlavorSelect" Background="LightGray"/>
             <Button x:Name="iceButton" Grid.Row="1" Content="Includes Ice" Visibility="Hidden" Click="NoIceSelect" Background="Green"/>
             <Button x:Name="lemonButton" Grid.Row="2" Visibility="Hidden" Content="No Lemon" Click="LemonSelect" Background="Red"/>
-            <Button x:Name="sweetButton" Grid.Row="3"  Visibility="Hidden" Content="Unsweetened Tea" Click="SweetSelect" Background="Red"/>
+            <Button x:Name="sweetButton" Grid.Row="0"  Visibility="Hidden" Content="Unsweetened Tea" Click="SweetSelect" Background="Red"/>
             <Button x:Name="creamButton" Grid.Row="2" Visibility="Hidden" Content="Leave Room for Cream" Click="CreamSelect" Background="Green"/>
-            <Button x:Name="cafButton" Grid.Row="3" Visibility="Hidden" Content="Caffenated" Click="CafSelect" Background="Green"/>
+            <Button x:Name="cafButton" Grid.Row="0" Visibility="Hidden" Content="Caffenated" Click="CafSelect" Background="Green"/>
+            <Button Grid.Row="3" Content="Done" Click="DoneSelect" Background="LightGray"/>
         </Grid>
     </Grid>
 </Page>

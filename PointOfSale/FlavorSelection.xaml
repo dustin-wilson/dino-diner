@@ -33,12 +33,12 @@
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Add To Order" FontSize="20" HorizontalAlignment="Center"/>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Flavor" FontSize="20" HorizontalAlignment="Center"/>
 
-        <Button Grid.Row="2" Grid.Column="0" Content="Cherry"/>
-        <Button Grid.Row="2" Grid.Column="1" Content="Chocolate"/>
-        <Button Grid.Row="2" Grid.Column="2" Content="Cola"/>
-        <Button Grid.Row="3" Grid.Column="0" Content="Lime"/>
-        <Button Grid.Row="3" Grid.Column="1" Content="Orange"/>
-        <Button Grid.Row="3" Grid.Column="2" Content="RootBeer"/>
-        <Button Grid.Row="4" Grid.Column="1" Content="Vanilla"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="Cherry" Tag="Cherry" Click="OnFlavorSelect"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="Chocolate" Tag="Chocolate" Click="OnFlavorSelect"/>
+        <Button Grid.Row="2" Grid.Column="2" Content="Cola" Tag="Cola" Click="OnFlavorSelect"/>
+        <Button Grid.Row="3" Grid.Column="0" Content="Lime" Tag="Lime" Click="OnFlavorSelect"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="Orange" Tag="Orange" Click="OnFlavorSelect"/>
+        <Button Grid.Row="3" Grid.Column="2" Content="RootBeer" Tag="RootBeer" Click="OnFlavorSelect"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="Vanilla" Tag="Vanilla" Click="OnFlavorSelect"/>
     </Grid>
 </Page>

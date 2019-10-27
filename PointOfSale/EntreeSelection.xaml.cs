@@ -127,7 +127,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 order.Add(new VelociWrap());
-                NavigationService.Navigate(new MenuCategorySelection());
+                NavigationService.GoBack();
             }
         }
     }

@@ -10,10 +10,19 @@ namespace DinoDiner.Menu
 {
     public class JurassicJava : Drink
     {
+        bool cream = false;
         /// <summary>
         /// Boolean to indicate if room should be left for cream
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        public bool RoomForCream
+        {
+            get { return cream; }
+            set
+            {
+                cream = value;
+                NotifyOfPropertyChanged("Special");
+            }
+        }
 
         private bool decaf = false;
         /// <summary>

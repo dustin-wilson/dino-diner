@@ -96,6 +96,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
         public Menu() { }
 
         /// <summary>

@@ -53,6 +53,9 @@ namespace DinoDiner.Menu
             get { return SalesTaxCost + SubtotalCost; }
         }
 
+        /// <summary>
+        /// Event handler of property changed notifications
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -72,6 +75,11 @@ namespace DinoDiner.Menu
             items = new List<IOrderItem>();
         }
 
+        /// <summary>
+        /// Properties to notify there is a change
+        /// </summary>
+        /// <param name="sender">object being sent</param>
+        /// <param name="args">Event argument</param>
         private void OnCollectionChanged(object sender, EventArgs args)
         {
             NotifyOfPropertyChanged("SubtotalCost");
@@ -82,11 +90,18 @@ namespace DinoDiner.Menu
 
         private List<IOrderItem> items; 
 
+        /// <summary>
+        /// Array of order items
+        /// </summary>
         public IOrderItem[] Items
         {
             get { return items.ToArray(); }
         }
 
+        /// <summary>
+        /// Adds an item to a list
+        /// </summary>
+        /// <param name="item">Item which needs to be added</param>
         public void Add(IOrderItem item)
         {
             item.PropertyChanged += OnCollectionChanged;
@@ -94,10 +109,14 @@ namespace DinoDiner.Menu
             OnCollectionChanged(this, new EventArgs());
         }
 
-        public bool Remove(IOrderItem item)
+        /// <summary>
+        /// Removes an item from a list
+        /// </summary>
+        /// <param name="item">Item which needs to be removed</param>
+        public void Remove(IOrderItem item)
         {
+            items.Remove(item);
             OnCollectionChanged(this, new EventArgs());
-            return items.Remove(item);
         }
     }
 }
