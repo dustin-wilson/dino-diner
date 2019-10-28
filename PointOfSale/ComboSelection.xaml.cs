@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -59,7 +60,13 @@ namespace PointOfSale
         /// <param name="e">Routed Event Argument</param>
         private void PBSelect(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo("Prehistoric PB&J"));
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            CretaceousCombo combo = new CretaceousCombo(pbj);
+            if(DataContext is Order order)
+            {
+                order.Add(combo);
+                NavigationService.Navigate(new CustomizePrehistoricPBJ((PrehistoricPBJ)combo.Entree, "Combo"));
+            }
         }
 
         /// <summary>

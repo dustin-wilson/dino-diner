@@ -70,8 +70,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(new PrehistoricPBJ());
-                NavigationService.Navigate(new MenuCategorySelection());
+                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj, "Entree"));
             }
         }
 

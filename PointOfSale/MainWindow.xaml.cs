@@ -64,5 +64,15 @@ namespace PointOfSale
         {
             PassDataContentToPage();
         }
+
+        /// <summary>
+        /// Button to navigate back to category selection
+        /// </summary>
+        /// <param name="sender">Whats being sent</param>
+        /// <param name="e">Routed event argument</param>
+        private void OnReturnSelect(object sender, RoutedEventArgs e)
+        {
+            OrderUI.NavigationService.Navigate(new MenuCategorySelection());
+        }
     }
 }

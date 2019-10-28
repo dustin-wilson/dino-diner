@@ -35,7 +35,7 @@
         
         <TextBlock Text="Add to Order" HorizontalAlignment="Center" FontSize="20" Grid.Row="0"/>
         
-        <TextBlock x:Name="entree" Text="Entree" HorizontalAlignment="Center" Grid.Row="1"/>
+        <Button x:Name="entree" Content="Entree" HorizontalAlignment="Center" Grid.Row="1" Height="30" Click="CustomizeSelect"/>
         
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>

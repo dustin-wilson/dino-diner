@@ -31,7 +31,7 @@ namespace PointOfSale
         public CustomizeCombo(string s)
         {
             InitializeComponent();
-            entree.Text = s;
+            entree.Content = "Customize " + s;
         }
 
         /// <summary>
@@ -52,6 +52,16 @@ namespace PointOfSale
         private void SideSelect(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new SideSelection());
+        }
+
+        /// <summary>
+        /// Needs to go back because of the order
+        /// </summary>
+        /// <param name="sender">object sent</param>
+        /// <param name="e">routed event argument</param>
+        private void CustomizeSelect(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }
