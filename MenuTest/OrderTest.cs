@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 using DinoDiner.Menu;
 using Xunit;
@@ -14,9 +15,7 @@ namespace MenuTest
         {
             Entree entree = new PrehistoricPBJ();
             Order order = new Order();
-            ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
-            items.Add(entree);
-            order.Items = items;
+            order.Add(entree);
             Assert.Equal(7.17, order.TotalCost, 2);
         }
 
@@ -28,12 +27,10 @@ namespace MenuTest
             Side fry = new Fryceritops();
             Drink water = new Water();
             Order order = new Order();
-            ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
-            items.Add(entree);
-            items.Add(nugget);
-            items.Add(fry);
-            items.Add(water);
-            order.Items = items;
+            order.Add(entree);
+            order.Add(nugget);
+            order.Add(fry);
+            order.Add(water);
             Assert.Equal(13.05, order.TotalCost, 2);
         }
 
@@ -43,9 +40,7 @@ namespace MenuTest
             Entree burger = new TRexKingBurger();
             CretaceousCombo combo = new CretaceousCombo(burger);
             Order order = new Order();
-            ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
-            items.Add(combo);
-            order.Items = items;
+            order.Add(combo);
             Assert.Equal(11.76, order.TotalCost, 2);
         }
 
@@ -56,9 +51,7 @@ namespace MenuTest
             CretaceousCombo combo = new CretaceousCombo(burger);
             combo.Size = Size.Large;
             Order order = new Order();
-            ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
-            items.Add(combo);
-            order.Items = items;
+            order.Add(combo);
             Assert.Equal(13.92, order.TotalCost, 2);
         }
 
@@ -67,9 +60,7 @@ namespace MenuTest
         {
             EntreeTestNegative entree = new EntreeTestNegative();
             Order order = new Order();
-            ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
-            items.Add(entree);
-            order.Items = items;
+            order.Add(entree);
             Assert.Equal(0, order.TotalCost);
         }
 
@@ -80,6 +71,8 @@ namespace MenuTest
             public string[] Special => throw new NotImplementedException();
 
             double IOrderItem.Price { get; } = -100;
+
+            public event PropertyChangedEventHandler PropertyChanged;
         }
     }
 }

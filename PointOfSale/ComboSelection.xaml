@@ -8,13 +8,21 @@
       d:DesignHeight="400" d:DesignWidth="592"
       Title="ComboSelection">
 
-    <Grid>
+    <Grid RenderTransformOrigin="0.5,0.5">
         <Grid.Resources>
             <Style TargetType="Button">
                 <Setter Property="Width" Value="150"/>
                 <Setter Property="Height" Value="110"/>
             </Style>
         </Grid.Resources>
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-180.054"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
