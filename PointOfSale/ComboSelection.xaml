@@ -15,14 +15,6 @@
                 <Setter Property="Height" Value="110"/>
             </Style>
         </Grid.Resources>
-        <Grid.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform Angle="-180.054"/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </Grid.RenderTransform>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>

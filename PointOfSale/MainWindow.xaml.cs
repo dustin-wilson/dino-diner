@@ -32,6 +32,7 @@ namespace PointOfSale
         {
             InitializeComponent();
             Order order = DataContext as Order;
+            OrderItems.NavigationService = OrderUI.NavigationService;
         }
 
         /// <summary>

@@ -21,7 +21,7 @@
         <TextBlock Text="Order" FontWeight="Bold" TextAlignment="Right"/>
         <TextBlock Grid.Column="1" Text="#" FontWeight="Bold" TextAlignment="Left" Margin="5,0,0,0"/>
 
-        <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items}" Name="OrderItems">
+        <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items}" Name="OrderItems" SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel MinWidth="190">

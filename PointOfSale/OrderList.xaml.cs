@@ -38,9 +38,12 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender">object sent</param>
         /// <param name="args">Event argument</param>
-        private void OnSelectionChanged(Object sender, EventArgs args)
+        private void OnSelectionChanged(Object sender, RoutedEventArgs args)
         {
-            
+            if (OrderItems.SelectedValue is PrehistoricPBJ entree)
+            {
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(entree, "Category"));
+            }
         }
 
         private void RemoveItem(object sender, RoutedEventArgs args)
@@ -57,5 +60,7 @@ namespace PointOfSale
                 }
             }
         }
+
+        public NavigationService NavigationService { get; set; }
     }
 }

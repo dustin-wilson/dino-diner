@@ -55,7 +55,7 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Compile Include="CustomizePrehistoricPBJ.xaml.cs">
+    <Compile Include="CustomizeEntree\CustomizePrehistoricPBJ.xaml.cs">
       <DependentUpon>CustomizePrehistoricPBJ.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrderList.xaml.cs">
@@ -72,7 +72,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomizePrehistoricPBJ.xaml">
+    <Page Include="CustomizeEntree\CustomizePrehistoricPBJ.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
