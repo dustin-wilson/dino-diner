@@ -18,7 +18,7 @@
             <Style TargetType="TextBlock">
                 <Setter Property="FontSize" Value="20"/>
             </Style>
-            <Style TargetType="RadioButton">
+            <Style TargetType="RadioButton" >
                 <Setter Property="FontSize" Value="15"/>
             </Style>
         </Grid.Resources>
@@ -66,9 +66,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <RadioButton Grid.Column="0" Content="Small" HorizontalAlignment="Center" IsChecked="True"/>
-            <RadioButton Grid.Column="1" Content="Medium" HorizontalAlignment="Center"/>
-            <RadioButton Grid.Column="2" Content="Large" HorizontalAlignment="Center"/>
+            <RadioButton Grid.Column="0" Content="Small" HorizontalAlignment="Center" IsChecked="True" Tag="Small" Click="OnChangeSize"/>
+            <RadioButton Grid.Column="1" Content="Medium" HorizontalAlignment="Center" Tag="Medium" Click="OnChangeSize"/>
+            <RadioButton Grid.Column="2" Content="Large" HorizontalAlignment="Center" Tag="Large" Click="OnChangeSize"/>
         </Grid>
     </Grid>
 </Page>

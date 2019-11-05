@@ -74,5 +74,19 @@ namespace PointOfSale
         {
             NavigationService.GoBack();
         }
+
+        /// <summary>
+        /// When radio buttons clicked
+        /// </summary>
+        /// <param name="sender">object being sent</param>
+        /// <param name="args">Routed event argument</param>
+        private void OnChangeSize(object sender, RoutedEventArgs args)
+        {
+            if (sender is FrameworkElement element)
+            {
+                combo.Drink.Size = (DinoDiner.Menu.Size)Enum.Parse(typeof(DinoDiner.Menu.Size), element.Tag.ToString());
+                combo.Side.Size = (DinoDiner.Menu.Size)Enum.Parse(typeof(DinoDiner.Menu.Size), element.Tag.ToString());
+            }
+        }
     }
 }
