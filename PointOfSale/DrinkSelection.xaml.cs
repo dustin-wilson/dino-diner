@@ -25,6 +25,7 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        private CretaceousCombo combo;
         private Drink drink;
 
         /// <summary>
@@ -33,6 +34,16 @@ namespace PointOfSale
         public DrinkSelection()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Constructor for a drink argument
+        /// </summary>
+        /// <param name="drink"></param>
+        public DrinkSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
         }
 
         /// <summary>
@@ -58,7 +69,10 @@ namespace PointOfSale
             {
                 drink = new Sodasaurus();
                 Sodasaurus soda = (Sodasaurus)drink;
-                order.Add(drink);
+                if (combo == null)
+                    order.Add(drink);
+                else
+                    combo.Drink = drink;
 
                 // Default Properties
                 iceButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
@@ -176,7 +190,10 @@ namespace PointOfSale
             {
                 drink = new Tyrannotea();
                 Tyrannotea tea = (Tyrannotea)drink;
-                order.Add(drink);
+                if (combo == null)
+                    order.Add(drink);
+                else
+                    combo.Drink = drink;
 
                 // Default Properties
                 iceButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));
@@ -216,7 +233,10 @@ namespace PointOfSale
             {
                 drink = new JurassicJava();
                 JurassicJava java = (JurassicJava)drink;
-                order.Add(drink);
+                if (combo == null)
+                    order.Add(drink);
+                else
+                    combo.Drink = drink;
 
                 // Default values
                 iceButton.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
@@ -256,7 +276,10 @@ namespace PointOfSale
             {
                 drink = new Water();
                 Water water = (Water)drink;
-                order.Add(drink);
+                if (combo == null)
+                    order.Add(drink);
+                else
+                    combo.Drink = drink;
 
                 // Default Value
                 iceButton.Background = new SolidColorBrush(Color.FromRgb(0, 128, 0));

@@ -50,7 +50,12 @@ namespace PointOfSale
         /// <param name="e">Routed Event Argument</param>
         private void NugSelect(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo("Dino-Nuggets"));
+            //NavigationService.Navigate(new CustomizeCombo("Dino-Nuggets"));
+            DinoNuggets nuggets = new DinoNuggets();
+            CretaceousCombo combo = new CretaceousCombo(nuggets);
+            if (DataContext is Order order)
+                order.Add(combo);
+            NavigationService.Navigate(new CustomizeEntree(combo));
         }
 
         /// <summary>

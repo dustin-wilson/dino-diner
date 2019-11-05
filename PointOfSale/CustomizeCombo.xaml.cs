@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -24,14 +25,24 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
-        /// <summary>
-        /// Public Constuctor for class
-        /// </summary>
-        /// <param name="s">Displays what combo user is customizing at top</param>
+        private CretaceousCombo combo;
+
         public CustomizeCombo(string s)
         {
             InitializeComponent();
             entree.Content = "Customize " + s;
+        }
+
+        /// <summary>
+        /// Public Constuctor for class
+        /// </summary>
+        /// <param name="s">Displays what combo user is customizing at top</param>
+        /// <param name="combo">Combo being edited</param>
+        public CustomizeCombo(string s, CretaceousCombo combo)
+        {
+            InitializeComponent();
+            entree.Content = "Customize " + s;
+            this.combo = combo;
         }
 
         /// <summary>
@@ -41,7 +52,7 @@ namespace PointOfSale
         /// <param name="e">Routed Event Argument</param>
         private void DrinkSelect(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DrinkSelection());
+            NavigationService.Navigate(new DrinkSelection(combo));
         }
 
         /// <summary>
