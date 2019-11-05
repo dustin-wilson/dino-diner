@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* CustomizeEntree.cs
+ * Author: Dustin Wilson
+ */
+ 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +26,53 @@ namespace PointOfSale
     public partial class CustomizeEntree : Page
     {
         private CretaceousCombo combo;
+        private Entree entree;
         private string entreeType;
 
+        /// <summary>
+        /// Public constructor
+        /// </summary>
+        /// <param name="entree">entree</param>
+        public CustomizeEntree(Entree entree)
+        {
+            InitializeComponent();
+            this.entree = entree;
+            if (entree is DinoNuggets nuggets)
+            {
+                NuggetsButtons();
+                entreeType = nuggets.ToString();
+            }
+            if (entree is Brontowurst bronto)
+            {
+                BrontoButtons();
+                entreeType = bronto.ToString();
+            }
+            if (entree is PterodactylWings wings)
+            {
+                entreeType = wings.ToString();
+                DonePressed(new object(), new RoutedEventArgs());
+            }
+            if (entree is SteakosaurusBurger steakosaurus)
+            {
+                SteakosaurusButtons();
+                entreeType = steakosaurus.ToString();
+            }
+            if (entree is TRexKingBurger king)
+            {
+                KingButtons();
+                entreeType = king.ToString();
+            }
+            if (entree is VelociWrap wrap)
+            {
+                WrapButtons();
+                entreeType = wrap.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="combo">combo</param>
         public CustomizeEntree(CretaceousCombo combo)
         {
             InitializeComponent();
@@ -32,11 +81,13 @@ namespace PointOfSale
             {
                 NuggetsButtons();
                 entreeType = nuggets.ToString();
+                entree = combo.Entree;
             }
             if (combo.Entree is Brontowurst bronto)
             {
                 BrontoButtons();
                 entreeType = bronto.ToString();
+                entree = combo.Entree;
             }
             if (combo.Entree is PterodactylWings wings)
             {
@@ -47,19 +98,25 @@ namespace PointOfSale
             {
                 SteakosaurusButtons();
                 entreeType = steakosaurus.ToString();
+                entree = combo.Entree;
             }
             if (combo.Entree is TRexKingBurger king)
             {
                 KingButtons();
                 entreeType = king.ToString();
+                entree = combo.Entree;
             }
             if (combo.Entree is VelociWrap wrap)
             {
                 WrapButtons();
                 entreeType = wrap.ToString();
+                entree = combo.Entree;
             }
         }
 
+        /// <summary>
+        /// Set wrap buttons
+        /// </summary>
         public void WrapButtons()
         {
             Button holdLettuce = new Button();
@@ -79,18 +136,31 @@ namespace PointOfSale
 
         }
 
+        /// <summary>
+        /// hold cheese
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HoldCheese(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is VelociWrap wrap)
+            if (entree is VelociWrap wrap)
                 wrap.HoldCheese();
         }
 
+        /// <summary>
+        /// hold dressing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HoldDressing(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is VelociWrap wrap)
+            if (entree is VelociWrap wrap)
                 wrap.HoldDressing();
         }
 
+        /// <summary>
+        /// set trex king button
+        /// </summary>
         public void KingButtons()
         {
             Button holdBun = new Button();
@@ -150,26 +220,44 @@ namespace PointOfSale
             stack2.Children.Add(holdMayo);
         }
 
+        /// <summary>
+        /// Holds lettuc
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HoldLettuce(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is TRexKingBurger king)
+            if (entree is TRexKingBurger king)
                 king.HoldLettuce();
-            if (combo.Entree is VelociWrap wrap)
+            if (entree is VelociWrap wrap)
                 wrap.HoldLettuce();
         }
 
+        /// <summary>
+        /// Hold tomato
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HoldTomato(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is TRexKingBurger king)
+            if (entree is TRexKingBurger king)
                 king.HoldTomato();
         }
 
+        /// <summary>
+        /// hold mayo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HoldMayo(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is TRexKingBurger king)
+            if (entree is TRexKingBurger king)
                 king.HoldMayo();
         }
 
+        /// <summary>
+        /// Set steakosaurus buttons
+        /// </summary>
         public void SteakosaurusButtons()
         {
             Button holdBun = new Button();
@@ -193,30 +281,48 @@ namespace PointOfSale
             stack2.Children.Add(holdMustard);
         }
 
+        /// <summary>
+        /// hold mustard
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HoldMustard(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is SteakosaurusBurger steakosaurus)
+            if (entree is SteakosaurusBurger steakosaurus)
                 steakosaurus.HoldMustard();
-            if (combo.Entree is TRexKingBurger king)
+            if (entree is TRexKingBurger king)
                 king.HoldMustard();
         }
 
+        /// <summary>
+        /// hold ketchup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HoldKetchup(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is SteakosaurusBurger steakosaurus)
+            if (entree is SteakosaurusBurger steakosaurus)
                 steakosaurus.HoldKetchup();
-            if (combo.Entree is TRexKingBurger king)
+            if (entree is TRexKingBurger king)
                 king.HoldKetchup();
         }
 
+        /// <summary>
+        /// hold pickle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HoldPickle(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is SteakosaurusBurger steakosaurus)
+            if (entree is SteakosaurusBurger steakosaurus)
                 steakosaurus.HoldPickle();
-            if (combo.Entree is TRexKingBurger king)
+            if (entree is TRexKingBurger king)
                 king.HoldPickle();
         }
 
+        /// <summary>
+        /// set brontowurst buttons
+        /// </summary>
         public void BrontoButtons()
         {
             Button holdBun = new Button();
@@ -236,30 +342,48 @@ namespace PointOfSale
 
         }
 
+        /// <summary>
+        /// hold onion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HoldOnion(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is Brontowurst bronto)
+            if (entree is Brontowurst bronto)
                 bronto.HoldOnion();
-            if (combo.Entree is TRexKingBurger king)
+            if (entree is TRexKingBurger king)
                 king.HoldOnion();
         }
 
+        /// <summary>
+        /// hold peppers
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HoldPepper(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is Brontowurst bronto)
+            if (entree is Brontowurst bronto)
                 bronto.HoldPeppers();
         }
 
+        /// <summary>
+        /// hold the bun
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HoldBun(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is Brontowurst bronto)
+            if (entree is Brontowurst bronto)
                 bronto.HoldBun();
-            if (combo.Entree is SteakosaurusBurger steakosaurus)
+            if (entree is SteakosaurusBurger steakosaurus)
                 steakosaurus.HoldBun();
-            if (combo.Entree is TRexKingBurger king)
+            if (entree is TRexKingBurger king)
                 king.HoldBun();
         }
 
+        /// <summary>
+        /// sets buttons for nuggets
+        /// </summary>
         public void NuggetsButtons()
         {
             Button addNugget = new Button()
@@ -270,15 +394,28 @@ namespace PointOfSale
             stack.Children.Add(addNugget);
         }
 
+        /// <summary>
+        /// adds a nugget
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddNugget(object sender, RoutedEventArgs e)
         {
-            if (combo.Entree is DinoNuggets nuggets)
+            if (entree is DinoNuggets nuggets)
                 nuggets.AddNugget();
         }
 
+        /// <summary>
+        /// operation for when the done button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DonePressed(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo(entreeType, combo));
+            if (combo == null)
+                NavigationService.Navigate(new MenuCategorySelection());
+            else
+                NavigationService.Navigate(new CustomizeCombo(entreeType, combo));
         }
     }
 }

@@ -33,6 +33,14 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        public SideSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            side = combo.Side;
+        }
+
+        private CretaceousCombo combo;
         private DinoDiner.Menu.Side side;
 
         /// <summary>
@@ -50,8 +58,11 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new Fryceritops();
+                if (combo == null)
+                    order.Add(side);
+                else
+                    combo.Side = side;
                 //order.Items.Add(side);
-                order.Add(side);
             }
         }
 
@@ -71,7 +82,10 @@ namespace PointOfSale
             {
                 side = new MeteorMacAndCheese();
                 //order.Items.Add(side);
-                order.Add(side);
+                if (combo == null)
+                    order.Add(side);
+                else
+                    combo.Side = side;
             }
         }
 
@@ -91,7 +105,10 @@ namespace PointOfSale
             {
                 side = new MezzorellaSticks();
                 //order.Items.Add(side);
-                order.Add(side);
+                if (combo == null)
+                    order.Add(side);
+                else
+                    combo.Side = side;
             }
         }
         
@@ -111,7 +128,10 @@ namespace PointOfSale
             {
                 side = new Triceritots();
                 //order.Items.Add(side);
-                order.Add(side);
+                if (combo == null)
+                    order.Add(side);
+                else
+                    combo.Side = side;
             }
         }
 

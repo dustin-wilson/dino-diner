@@ -42,8 +42,9 @@ namespace PointOfSale
         {
             if(DataContext is Order order)
             {
-                order.Add(new Brontowurst());
-                NavigationService.Navigate(new MenuCategorySelection());
+                    Brontowurst brontowurst = new Brontowurst();
+                order.Add(brontowurst);
+                NavigationService.Navigate(new CustomizeEntree(brontowurst));
             }
         }
 
@@ -56,8 +57,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(new DinoNuggets());
-                NavigationService.Navigate(new MenuCategorySelection());
+                DinoNuggets nuggets = new DinoNuggets();
+                order.Add(nuggets);
+                NavigationService.Navigate(new CustomizeEntree(nuggets));
             }
         }
 
@@ -70,9 +72,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                Entree pbj = new PrehistoricPBJ();
                 order.Add(pbj);
-                NavigationService.Navigate(new MenuCategorySelection());
+                NavigationService.Navigate(new CustomizeEntree(pbj));
             }
         }
 
@@ -85,8 +87,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(new PterodactylWings());
-                NavigationService.Navigate(new MenuCategorySelection());
+                PterodactylWings wings = new PterodactylWings();
+                order.Add(wings);
+                NavigationService.Navigate(wings);
             }
         }
 
@@ -113,8 +116,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(new TRexKingBurger());
-                NavigationService.Navigate(new MenuCategorySelection());
+                TRexKingBurger king = new TRexKingBurger();
+                order.Add(king);
+                NavigationService.Navigate(new CustomizeEntree(king));
             }
         }
 

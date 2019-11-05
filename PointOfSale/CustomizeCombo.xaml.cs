@@ -62,7 +62,7 @@ namespace PointOfSale
         /// <param name="e">Routed Event Argument</param>
         private void SideSelect(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new SideSelection());
+            NavigationService.Navigate(new SideSelection(combo));
         }
 
         /// <summary>
