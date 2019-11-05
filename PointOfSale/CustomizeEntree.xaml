@@ -3,7 +3,6 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CustomizeEntree">
@@ -19,19 +18,19 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         
-        <StackPanel x:Name="stack" Grid.ColumnSpan="2">
+        <StackPanel x:Name="stack">
             <StackPanel.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="MinHeight" Value="100"/>
+                    <Setter Property="Height" Value="100"/>
                     <Setter Property="FontSize" Value="40"/>
                 </Style>
             </StackPanel.Resources>
         </StackPanel>
         
-        <StackPanel x:Name="stack2">
+        <StackPanel x:Name="stack2" Grid.Column="1">
             <StackPanel.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="MinHeight" Value="100"/>
+                    <Setter Property="Height" Value="100"/>
                     <Setter Property="FontSize" Value="40"/>
                 </Style>
             </StackPanel.Resources>

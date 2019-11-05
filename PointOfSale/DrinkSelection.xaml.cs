@@ -37,13 +37,23 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Constructor for a drink argument
+        /// Constructor for a combo argument
         /// </summary>
-        /// <param name="drink"></param>
+        /// <param name="combo">Combo editig drink of</param>
         public DrinkSelection(CretaceousCombo combo)
         {
             InitializeComponent();
             this.combo = combo;
+        }
+
+        /// <summary>
+        /// Constructor for drink argumenta
+        /// </summary>
+        /// <param name="drink">Drink editing</param>
+        public DrinkSelection(Drink drink)
+        {
+            InitializeComponent();
+            this.drink = drink;
         }
 
         /// <summary>

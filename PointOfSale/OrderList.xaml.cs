@@ -40,10 +40,12 @@ namespace PointOfSale
         /// <param name="args">Event argument</param>
         private void OnSelectionChanged(Object sender, RoutedEventArgs args)
         {
-            if (OrderItems.SelectedValue is PrehistoricPBJ entree)
+            if (OrderItems.SelectedValue is CretaceousCombo combo)
             {
-                NavigationService.Navigate(new CustomizePrehistoricPBJ(entree, "Category"));
+                NavigationService.Navigate(new CustomizeEntree(combo));
             }
+            if (OrderItems.SelectedValue is Drink drink)
+                NavigationService.Navigate(new DrinkSelection(drink));
         }
 
         private void RemoveItem(object sender, RoutedEventArgs args)
