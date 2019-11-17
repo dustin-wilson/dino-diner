@@ -1,0 +1,39 @@
+﻿@page
+@model Website.Pages.MenuModel
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h1>Menu</h1>
+
+<h2>Combos</h2>
+<div>
+    @foreach (string item in Model.menu.AvailableCombos)
+    {
+        <div class="menu-item">@item</div>
+    }
+</div>
+
+<h2>Entrees</h2>
+<div>
+    @foreach (string item in Model.menu.AvailableEnrees)
+    {
+        <div class="menu-item">@item</div>
+    }
+</div>
+
+<h2>Sides</h2>
+<div>
+    @foreach (string item in Model.menu.AvailableSides)
+    {
+        <div class="menu-item">@item</div>
+    }
+</div>
+
+<h2>Drinks</h2>
+<div>
+    @foreach (string item in Model.menu.AvailableDrinks)
+    {
+        <div class="menu-item">@item</div>
+    }
+</div>

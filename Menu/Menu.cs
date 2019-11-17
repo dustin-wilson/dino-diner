@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    class Menu
+    public class Menu
     {
         /// <summary>
         /// List containing all available sides
