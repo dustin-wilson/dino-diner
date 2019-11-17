@@ -12,6 +12,8 @@ namespace Website.Pages
     {
         public Menu menu;
 
+        public DinoDiner.Menu.JurassicJava java = new DinoDiner.Menu.JurassicJava();
+
         public void OnGet()
         {
             menu = new Menu();

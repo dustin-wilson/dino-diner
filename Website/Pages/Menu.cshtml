@@ -32,8 +32,5 @@
 
 <h2>Drinks</h2>
 <div>
-    @foreach (string item in Model.menu.AvailableDrinks)
-    {
-        <div class="menu-item">@item</div>
-    }
+    <div class="menu-item">@Model.java.ToString() @Model.java.Calories @Model.java.Price @Model.java.Ingredients</div>
 </div>
