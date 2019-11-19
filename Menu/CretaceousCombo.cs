@@ -126,7 +126,7 @@ namespace DinoDiner.Menu
             {
                 List<string> ingredients = new List<string>();
                 ingredients.AddRange(Entree.Ingredients);
-                ingredients.AddRange(Entree.Ingredients);
+                ingredients.AddRange(Side.Ingredients);
                 ingredients.AddRange(Drink.Ingredients);
                 return ingredients;
             }

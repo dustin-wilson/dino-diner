@@ -8,29 +8,65 @@
 
 <h2>Combos</h2>
 <div>
-    @foreach (string item in Model.menu.AvailableCombos)
+    @foreach (DinoDiner.Menu.CretaceousCombo item in Model.menu.GetCombos)
     {
-        <div class="menu-item">@item</div>
+        <div class="menu-item">
+            <p>@item.Description $@item.Price Calories are @item.Calories</p>
+            <p class="ingredient">
+                @foreach (string ingredient in item.Ingredients)
+                {
+                    <div>@ingredient</div>
+                }
+            </p>
+        </div>
     }
 </div>
 
 <h2>Entrees</h2>
 <div>
-    @foreach (string item in Model.menu.AvailableEnrees)
+    @foreach (DinoDiner.Menu.Entree item in Model.menu.GetEntrees)
     {
-        <div class="menu-item">@item</div>
+        <div class="menu-item">
+            <p>@item.Description $@item.Price Calories are @item.Calories</p>
+            <p class="ingredient">
+                @foreach (string ingredient in item.Ingredients)
+                {
+                    <div>@ingredient</div>
+                }
+            </p>
+        </div>
     }
 </div>
 
 <h2>Sides</h2>
 <div>
-    @foreach (string item in Model.menu.AvailableSides)
+    @foreach (DinoDiner.Menu.Side item in Model.menu.GetSides)
     {
-        <div class="menu-item">@item</div>
+        <div class="menu-item">
+            <p>@item.Description $@item.Price Calories are @item.Calories</p>
+            <p class="ingredient">
+                @foreach (string ingredient in item.Ingredients)
+                {
+                    <div>@ingredient</div>
+                }
+            </p>
+        </div>
     }
 </div>
 
 <h2>Drinks</h2>
 <div>
-    <div class="menu-item">@Model.java.ToString() @Model.java.Calories @Model.java.Price @Model.java.Ingredients</div>
+
+    @foreach (DinoDiner.Menu.Drink item in Model.menu.GetDrinks)
+    {
+        <div class="menu-item">
+            <p>@item.Description $@item.Price Calories are @item.Calories</p>
+            <p class="ingredient">
+                @foreach (string ingredient in item.Ingredients)
+                {
+                    <div>@ingredient</div>
+                }
+            </p>
+        </div>
+    }
 </div>
