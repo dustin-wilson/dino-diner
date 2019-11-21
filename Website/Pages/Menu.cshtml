@@ -6,67 +6,124 @@
 
 <h1>Menu</h1>
 
-<h2>Combos</h2>
-<div>
-    @foreach (DinoDiner.Menu.CretaceousCombo item in Model.menu.GetCombos)
-    {
-        <div class="menu-item">
-            <p>@item.Description $@item.Price Calories are @item.Calories</p>
-            <p class="ingredient">
-                @foreach (string ingredient in item.Ingredients)
+<div class="content">
+    <div class="result">
+        @if (Model.itemType.Contains("combo"))
+        {
+            <h2>Combos</h2>
+            <div>
+                @foreach (DinoDiner.Menu.CretaceousCombo item in Model.menu.GetCombos)
                 {
-                    <div>@ingredient</div>
+                    <div class="menu-item">
+                        <p>@item.Description $@item.Price Calories are @item.Calories</p>
+                        <p class="ingredient">
+                            @foreach (string ingredient in item.Ingredients)
+                            {
+                                <div>@ingredient</div>
+                            }
+                        </p>
+                    </div>
                 }
-            </p>
+            </div>
+        }
+
+        @if (Model.itemType.Contains("entree"))
+        {
+            <h2>Entrees</h2>
+            <div>
+                @foreach (DinoDiner.Menu.Entree item in Model.menu.GetEntrees)
+                {
+                    <div class="menu-item">
+                        <p>@item.Description $@item.Price Calories are @item.Calories</p>
+                        <p class="ingredient">
+                            @foreach (string ingredient in item.Ingredients)
+                            {
+                                <div>@ingredient</div>
+                            }
+                        </p>
+                    </div>
+                }
+            </div>
+        }
+
+        @if (Model.itemType.Contains("side"))
+        {
+            <h2>Sides</h2>
+            <div>
+                @foreach (DinoDiner.Menu.Side item in Model.menu.GetSides)
+                {
+                    <div class="menu-item">
+                        <p>@item.Description $@item.Price Calories are @item.Calories</p>
+                        <p class="ingredient">
+                            @foreach (string ingredient in item.Ingredients)
+                            {
+                                <div>@ingredient</div>
+                            }
+                        </p>
+                    </div>
+                }
+            </div>
+        }
+
+        @if (Model.itemType.Contains("drink"))
+        {
+            <h2>Drinks</h2>
+            <div>
+
+                @foreach (DinoDiner.Menu.Drink item in Model.menu.GetDrinks)
+                {
+                    <div class="menu-item">
+                        <p>@item.Description $@item.Price Calories are @item.Calories</p>
+                        <p class="ingredient">
+                            @foreach (string ingredient in item.Ingredients)
+                            {
+                                <div>@ingredient</div>
+                            }
+                        </p>
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+    
+    <form method="post">
+        <h4>Search</h4>
+        <input type="text" name="search" value="" />
+        <input type="submit" value="Search" />
+
+        <div class="checkbox-list">
+            <h4>Menu Category</h4>
+            <label>
+                <input type="checkbox" value="combo" name="itemType" checked="@Model.itemType.Contains("combo")"/>
+                Combo
+            </label>
+
+            <label>
+                <input type="checkbox" value="entree" name="itemType" checked="@Model.itemType.Contains("entree")"/>
+                Entree
+            </label>
+
+            <label>
+                <input type="checkbox" value="side" name="itemType" checked="@Model.itemType.Contains("side")"/>
+                Side
+            </label>
+
+            <label>
+                <input type="checkbox" value="drink" name="itemType" checked="@Model.itemType.Contains("drink")"/>
+                Drink
+            </label>
         </div>
-    }
+
+        <h4>Price</h4>
+        <label>
+            Min:
+            <input type="number" min="0" max="10" step="0.1" name="minPrice" />
+        </label>
+        <label>
+            Max:
+            <input type="number" min="0" max="10" step="0.1" name="maxPrice" value="" />
+        </label>
+    </form>
 </div>
 
-<h2>Entrees</h2>
-<div>
-    @foreach (DinoDiner.Menu.Entree item in Model.menu.GetEntrees)
-    {
-        <div class="menu-item">
-            <p>@item.Description $@item.Price Calories are @item.Calories</p>
-            <p class="ingredient">
-                @foreach (string ingredient in item.Ingredients)
-                {
-                    <div>@ingredient</div>
-                }
-            </p>
-        </div>
-    }
-</div>
-
-<h2>Sides</h2>
-<div>
-    @foreach (DinoDiner.Menu.Side item in Model.menu.GetSides)
-    {
-        <div class="menu-item">
-            <p>@item.Description $@item.Price Calories are @item.Calories</p>
-            <p class="ingredient">
-                @foreach (string ingredient in item.Ingredients)
-                {
-                    <div>@ingredient</div>
-                }
-            </p>
-        </div>
-    }
-</div>
-
-<h2>Drinks</h2>
-<div>
-
-    @foreach (DinoDiner.Menu.Drink item in Model.menu.GetDrinks)
-    {
-        <div class="menu-item">
-            <p>@item.Description $@item.Price Calories are @item.Calories</p>
-            <p class="ingredient">
-                @foreach (string ingredient in item.Ingredients)
-                {
-                    <div>@ingredient</div>
-                }
-            </p>
-        </div>
-    }
-</div>

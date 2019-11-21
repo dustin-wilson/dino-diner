@@ -30,3 +30,25 @@ body {
     flex-direction: row;
     margin: 0;
 }
+
+.content {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    width: 300px;
+    background-color: lightgray;
+    flex-grow: 0;
+    padding: 50px;
+}
+
+h4 {
+    margin-bottom: 5px;
+}

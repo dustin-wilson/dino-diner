@@ -16,14 +16,31 @@ namespace Website.Pages
     public class MenuModel : PageModel
     {
         //Contains the menu object
-        public Menu menu;
+        public Menu menu = new Menu();
+
+        [BindProperty]
+        public string search { get; set; }
+
+        [BindProperty]
+        public List<string> itemType { get; set; } = new List<string>() { "combo", "entree", "side", "drink" };
+
+        [BindProperty]
+        public float minPrice { get; set; }
+
+        [BindProperty]
+        public float maxPrice { get; set; }
 
         /// <summary>
         /// Method ran when page navigated to
         /// </summary>
         public void OnGet()
         {
-            menu = new Menu();
+
+        }
+
+        public void OnPost()
+        {
+
         }
     }
 }
