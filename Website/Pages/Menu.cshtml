@@ -8,11 +8,11 @@
 
 <div class="content">
     <div class="result">
-        @if (Model.itemType.Contains("combo"))
+        @if (Model.itemType.Contains("combo") && Model.combos.Count > 0)
         {
             <h2>Combos</h2>
             <div>
-                @foreach (DinoDiner.Menu.CretaceousCombo item in Model.menu.GetCombos)
+                @foreach (DinoDiner.Menu.IMenuItem item in Model.combos)
                 {
                     <div class="menu-item">
                         <p>@item.Description $@item.Price Calories are @item.Calories</p>
@@ -27,11 +27,11 @@
             </div>
         }
 
-        @if (Model.itemType.Contains("entree"))
+        @if (Model.itemType.Contains("entree") && Model.entrees.Count > 0)
         {
             <h2>Entrees</h2>
             <div>
-                @foreach (DinoDiner.Menu.Entree item in Model.menu.GetEntrees)
+                @foreach (DinoDiner.Menu.IMenuItem item in @Model.entrees)
                 {
                     <div class="menu-item">
                         <p>@item.Description $@item.Price Calories are @item.Calories</p>
@@ -46,11 +46,11 @@
             </div>
         }
 
-        @if (Model.itemType.Contains("side"))
+        @if (Model.itemType.Contains("side") && Model.sides.Count > 0)
         {
             <h2>Sides</h2>
             <div>
-                @foreach (DinoDiner.Menu.Side item in Model.menu.GetSides)
+                @foreach (DinoDiner.Menu.IMenuItem item in Model.sides)
                 {
                     <div class="menu-item">
                         <p>@item.Description $@item.Price Calories are @item.Calories</p>
@@ -65,12 +65,12 @@
             </div>
         }
 
-        @if (Model.itemType.Contains("drink"))
+        @if (Model.itemType.Contains("drink") && Model.drinks.Count > 0)
         {
             <h2>Drinks</h2>
             <div>
 
-                @foreach (DinoDiner.Menu.Drink item in Model.menu.GetDrinks)
+                @foreach (DinoDiner.Menu.IMenuItem item in Model.drinks)
                 {
                     <div class="menu-item">
                         <p>@item.Description $@item.Price Calories are @item.Calories</p>

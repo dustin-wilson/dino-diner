@@ -29,11 +29,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Returns all sides a side object
         /// </summary>
-        public List<Side> GetSides
+        public List<IMenuItem> GetSides
         {
             get
             {
-                List<Side> sides = new List<Side>();
+                List<IMenuItem> sides = new List<IMenuItem>();
                 sides.Add(new Fryceritops());
                 sides.Add(new MeteorMacAndCheese());
                 sides.Add(new MezzorellaSticks());
@@ -61,11 +61,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// List containing all available drinks as Drink objects
         /// </summary>
-        public List<Drink> GetDrinks
+        public List<IMenuItem> GetDrinks
         {
             get
             {
-                List<Drink> drinks = new List<Drink>();
+                List<IMenuItem> drinks = new List<IMenuItem>();
                 drinks.Add(new JurassicJava());
                 drinks.Add(new Sodasaurus());
                 drinks.Add(new Tyrannotea());
@@ -96,11 +96,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// List containing all available entrees as Entree objects
         /// </summary>
-        public List<Entree> GetEntrees
+        public List<IMenuItem> GetEntrees
         {
             get
             {
-                List<Entree> entree = new List<Entree>();
+                List<IMenuItem> entree = new List<IMenuItem>();
                 entree.Add(new Brontowurst());
                 entree.Add(new DinoNuggets());
                 entree.Add(new PrehistoricPBJ());
@@ -134,11 +134,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// List containing all available combos as Combo objects
         /// </summary>
-        public List<CretaceousCombo> GetCombos
+        public List<IMenuItem> GetCombos
         {
             get
             {
-                List<CretaceousCombo> combo = new List<CretaceousCombo>();
+                List<IMenuItem> combo = new List<IMenuItem>();
                 combo.Add(new CretaceousCombo(new Brontowurst()));
                 combo.Add(new CretaceousCombo(new DinoNuggets()));
                 combo.Add(new CretaceousCombo(new PrehistoricPBJ()));
@@ -178,6 +178,19 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return AvailableMenuItems.ToString();
+        }
+
+        public List<IMenuItem> FilterPrice(float min, float max, List<IMenuItem> items)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+
+            foreach(IMenuItem item in items)
+            {
+                if (item.Price >= min && item.Price <= max)
+                    result.Add(item);
+            }
+
+            return result;
         }
     }
 }

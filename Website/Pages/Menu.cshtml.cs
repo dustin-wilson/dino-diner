@@ -18,6 +18,11 @@ namespace Website.Pages
         //Contains the menu object
         public Menu menu = new Menu();
 
+        public List<IMenuItem> entrees;
+        public List<IMenuItem> combos;
+        public List<IMenuItem> sides;
+        public List<IMenuItem> drinks;
+
         [BindProperty]
         public string search { get; set; }
 
@@ -28,19 +33,25 @@ namespace Website.Pages
         public float minPrice { get; set; }
 
         [BindProperty]
-        public float maxPrice { get; set; }
+        public float maxPrice { get; set; } = 10;
 
         /// <summary>
         /// Method ran when page navigated to
         /// </summary>
         public void OnGet()
         {
-
+            combos = menu.FilterPrice(minPrice, maxPrice, menu.GetCombos);
+            entrees = menu.FilterPrice(minPrice, maxPrice, menu.GetEntrees);
+            sides = menu.FilterPrice(minPrice, maxPrice, menu.GetSides);
+            drinks = menu.FilterPrice(minPrice, maxPrice, menu.GetDrinks);
         }
 
         public void OnPost()
         {
-
+            combos = menu.FilterPrice(minPrice, maxPrice, menu.GetCombos);
+            entrees = menu.FilterPrice(minPrice, maxPrice, menu.GetEntrees);
+            sides = menu.FilterPrice(minPrice, maxPrice, menu.GetSides);
+            drinks = menu.FilterPrice(minPrice, maxPrice, menu.GetDrinks);
         }
     }
 }
