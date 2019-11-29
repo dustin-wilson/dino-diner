@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -153,15 +154,15 @@ namespace DinoDiner.Menu
         /// <summary>
         /// List containg all available menu items
         /// </summary>
-        public List<string> AvailableMenuItems
+        public List<IMenuItem> AvailableMenuItems
         {
             get
             {
-                List<string> menu = new List<string>();
-                menu.AddRange(AvailableEnrees);
-                menu.AddRange(AvailableDrinks);
-                menu.AddRange(AvailableSides);
-                menu.AddRange(AvailableCombos);
+                List<IMenuItem> menu = new List<IMenuItem>();
+                menu.AddRange(GetCombos);
+                menu.AddRange(GetEntrees);
+                menu.AddRange(GetSides);
+                menu.AddRange(GetDrinks);
                 return menu;
             }
         }
@@ -195,6 +196,82 @@ namespace DinoDiner.Menu
             {
                 if (item.Price >= min && item.Price <= max)
                     result.Add(item);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Filters items based off the name
+        /// </summary>
+        /// <param name="searchString">name seeing if is included in the description</param>
+        /// <param name="items">all items which meet the critera</param>
+        /// <returns>list of items which meets the requirements</returns>
+        public List<IMenuItem> FilterName(string searchString, List<IMenuItem> items)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+
+            foreach (IMenuItem item in items)
+            {
+                string description = item.Description.ToLower();
+                if (description.Contains(searchString))
+                    result.Add(item);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Makes sure none of the ingredients are in the listed items
+        /// </summary>
+        /// <param name="ingredients">ingredients user does not want in displayed items</param>
+        /// <param name="items">list of items</param>
+        /// <returns>list of items which meet requirements</returns>
+        public List<IMenuItem> FilterIngredients(List<string> ingredients, List<IMenuItem> items)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+            bool valid = true;
+
+            foreach (IMenuItem item in items)
+            {
+                valid = true;
+
+                foreach(string ingredient in ingredients)
+                {
+                    if (item.Ingredients.Contains(ingredient))
+                        valid = false;
+                }
+
+                if (valid)
+                    result.Add(item);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Returns all possible ingredients
+        /// </summary>
+        public List<string> PossibleIngredients
+        {
+            get { return FindAllPossibleIngredients(); }
+        }
+
+        /// <summary>
+        /// finds all the possible ingredients
+        /// </summary>
+        /// <returns>the list with the above</returns>
+        public List<string> FindAllPossibleIngredients()
+        {
+            List<string> result = new List<string>();
+
+            foreach(IMenuItem item in AvailableMenuItems)
+            {
+                foreach(string ingredient in item.Ingredients)
+                {
+                    if (!result.Contains(ingredient))
+                        result.Add(ingredient);
+                }
             }
 
             return result;

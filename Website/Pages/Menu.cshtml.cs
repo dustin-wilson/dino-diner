@@ -30,10 +30,13 @@ namespace Website.Pages
         public List<string> itemType { get; set; } = new List<string>() { "combo", "entree", "side", "drink" };
 
         [BindProperty]
+        public List<string> ingredients { get; set; } = new List<string>();
+
+        [BindProperty]
         public float minPrice { get; set; }
 
         [BindProperty]
-        public float maxPrice { get; set; } = 10;
+        public float maxPrice { get; set; } = 12;
 
         /// <summary>
         /// Method ran when page navigated to
@@ -53,13 +56,28 @@ namespace Website.Pages
             sides = menu.GetSides;
             drinks = menu.GetDrinks;
 
-            if (minPrice > 0 || maxPrice < 10) {
+            if (minPrice > 0 || maxPrice < 12) {
                 combos = menu.FilterPrice(minPrice, maxPrice, combos);
                 entrees = menu.FilterPrice(minPrice, maxPrice, entrees);
                 sides = menu.FilterPrice(minPrice, maxPrice, sides);
                 drinks = menu.FilterPrice(minPrice, maxPrice, drinks);
             }
             
+            if (search != null)
+            {
+                combos = menu.FilterName(search, combos);
+                entrees = menu.FilterName(search, entrees);
+                sides = menu.FilterName(search, sides);
+                drinks = menu.FilterName(search, drinks);
+            }
+
+            if (ingredients != null)
+            {
+                combos = menu.FilterIngredients(ingredients, combos);
+                entrees = menu.FilterIngredients(ingredients, entrees);
+                sides = menu.FilterIngredients(ingredients, sides);
+                drinks = menu.FilterIngredients(ingredients, drinks);
+            }
         }
     }
 }
