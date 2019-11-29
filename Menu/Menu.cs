@@ -180,6 +180,13 @@ namespace DinoDiner.Menu
             return AvailableMenuItems.ToString();
         }
 
+        /// <summary>
+        /// Filters items that fall into a specific price range
+        /// </summary>
+        /// <param name="min">minium price of an item</param>
+        /// <param name="max">max price of an item</param>
+        /// <param name="items">list to sort through</param>
+        /// <returns></returns>
         public List<IMenuItem> FilterPrice(float min, float max, List<IMenuItem> items)
         {
             List<IMenuItem> result = new List<IMenuItem>();

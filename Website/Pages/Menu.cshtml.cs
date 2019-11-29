@@ -40,18 +40,26 @@ namespace Website.Pages
         /// </summary>
         public void OnGet()
         {
-            combos = menu.FilterPrice(minPrice, maxPrice, menu.GetCombos);
-            entrees = menu.FilterPrice(minPrice, maxPrice, menu.GetEntrees);
-            sides = menu.FilterPrice(minPrice, maxPrice, menu.GetSides);
-            drinks = menu.FilterPrice(minPrice, maxPrice, menu.GetDrinks);
+            combos = menu.GetCombos;
+            entrees = menu.GetEntrees;
+            sides = menu.GetSides;
+            drinks = menu.GetDrinks;
         }
 
         public void OnPost()
         {
-            combos = menu.FilterPrice(minPrice, maxPrice, menu.GetCombos);
-            entrees = menu.FilterPrice(minPrice, maxPrice, menu.GetEntrees);
-            sides = menu.FilterPrice(minPrice, maxPrice, menu.GetSides);
-            drinks = menu.FilterPrice(minPrice, maxPrice, menu.GetDrinks);
+            combos = menu.GetCombos;
+            entrees = menu.GetEntrees;
+            sides = menu.GetSides;
+            drinks = menu.GetDrinks;
+
+            if (minPrice > 0 || maxPrice < 10) {
+                combos = menu.FilterPrice(minPrice, maxPrice, combos);
+                entrees = menu.FilterPrice(minPrice, maxPrice, entrees);
+                sides = menu.FilterPrice(minPrice, maxPrice, sides);
+                drinks = menu.FilterPrice(minPrice, maxPrice, drinks);
+            }
+            
         }
     }
 }
