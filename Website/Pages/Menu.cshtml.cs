@@ -18,10 +18,10 @@ namespace Website.Pages
         //Contains the menu object
         public Menu menu = new Menu();
 
-        public List<IMenuItem> entrees;
-        public List<IMenuItem> combos;
-        public List<IMenuItem> sides;
-        public List<IMenuItem> drinks;
+        public IEnumerable<IMenuItem> entrees;
+        public IEnumerable<IMenuItem> combos;
+        public IEnumerable<IMenuItem> sides;
+        public IEnumerable<IMenuItem> drinks;
 
         [BindProperty]
         public string search { get; set; }
@@ -43,40 +43,40 @@ namespace Website.Pages
         /// </summary>
         public void OnGet()
         {
-            combos = menu.GetCombos;
-            entrees = menu.GetEntrees;
-            sides = menu.GetSides;
-            drinks = menu.GetDrinks;
+            combos = menu.AvailableMenuItems.OfType<CretaceousCombo>();
+            entrees = menu.AvailableMenuItems.OfType<Entree>();
+            sides = menu.AvailableMenuItems.OfType<Side>();
+            drinks = menu.AvailableMenuItems.OfType<Drink>();
         }
 
         public void OnPost()
         {
-            combos = menu.GetCombos;
-            entrees = menu.GetEntrees;
-            sides = menu.GetSides;
-            drinks = menu.GetDrinks;
+            combos = menu.AvailableMenuItems.OfType<CretaceousCombo>();
+            entrees = menu.AvailableMenuItems.OfType<Entree>();
+            sides = menu.AvailableMenuItems.OfType<Side>();
+            drinks = menu.AvailableMenuItems.OfType<Drink>();
 
             if (minPrice > 0 || maxPrice < 12) {
-                combos = menu.FilterPrice(minPrice, maxPrice, combos);
-                entrees = menu.FilterPrice(minPrice, maxPrice, entrees);
-                sides = menu.FilterPrice(minPrice, maxPrice, sides);
-                drinks = menu.FilterPrice(minPrice, maxPrice, drinks);
+                combos = combos.Where(combo => combo.Price > minPrice && combo.Price < maxPrice);
+                entrees = entrees.Where(combo => combo.Price > minPrice && combo.Price < maxPrice);
+                sides = sides.Where(combo => combo.Price > minPrice && combo.Price < maxPrice);
+                drinks = drinks.Where(combo => combo.Price > minPrice && combo.Price < maxPrice);
             }
             
             if (search != null)
             {
-                combos = menu.FilterName(search, combos);
-                entrees = menu.FilterName(search, entrees);
-                sides = menu.FilterName(search, sides);
-                drinks = menu.FilterName(search, drinks);
+                combos = combos.Where(combo => combo.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+                entrees = entrees.Where(combo => combo.Description.ToLower().Contains(search));
+                sides = sides.Where(combo => combo.Description.ToLower().Contains(search));
+                drinks = drinks.Where(combo => combo.Description.ToLower().Contains(search));
             }
 
             if (ingredients != null)
             {
-                combos = menu.FilterIngredients(ingredients, combos);
-                entrees = menu.FilterIngredients(ingredients, entrees);
-                sides = menu.FilterIngredients(ingredients, sides);
-                drinks = menu.FilterIngredients(ingredients, drinks);
+                combos = combos.Where(combo => combo.Ingredients.Intersect(ingredients).Count() == 0);
+                entrees = entrees.Where(combo => combo.Ingredients.Intersect(ingredients).Count() == 0);
+                sides = sides.Where(combo => combo.Ingredients.Intersect(ingredients).Count() == 0);
+                drinks = drinks.Where(combo => combo.Ingredients.Intersect(ingredients).Count() == 0);
             }
         }
     }
