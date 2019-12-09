@@ -15,7 +15,33 @@
                 @foreach (DinoDiner.Menu.IMenuItem item in Model.combos)
                 {
                     <div class="menu-item">
-                        <p>@item.Description $@item.Price Calories are @item.Calories</p>
+                        <p>@item.Description</p>
+                        <table>
+                            <tr>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Calories</th>
+                            </tr>
+                            <tr>
+                                @(item.Size = DinoDiner.Menu.Size.Small)
+                                <td>@item.Size</td>
+                                <td>@item.Price</td>
+                                <td>@item.Calories</td>
+                            </tr>
+                            <tr>
+                                @(item.Size = DinoDiner.Menu.Size.Medium)
+                                <td>@item.Size</td>
+                                <td>@item.Price</td>
+                                <td>@item.Calories</td>
+                            </tr>
+                            <tr>
+                                @(item.Size = DinoDiner.Menu.Size.Large)
+                                <td>@item.Size</td>
+                                <td>@item.Price</td>
+                                <td>@item.Calories</td>
+                            </tr>
+                        </table>
+                        <p>Ingredients:</p>
                         <p class="ingredient">
                             @foreach (string ingredient in item.Ingredients)
                             {
@@ -52,15 +78,41 @@
             <div>
                 @foreach (DinoDiner.Menu.IMenuItem item in Model.sides)
                 {
-                    <div class="menu-item">
-                        <p>@item.Description $@item.Price Calories are @item.Calories</p>
-                        <p class="ingredient">
-                            @foreach (string ingredient in item.Ingredients)
-                            {
-                                <div>@ingredient</div>
-                            }
-                        </p>
-                    </div>
+                <div class="menu-item">
+                    <p>@item.Description</p>
+                    <table>
+                        <tr>
+                            <th>Size</th>
+                            <th>Price</th>
+                            <th>Calories</th>
+                        </tr>
+                        <tr>
+                            @(item.Size = DinoDiner.Menu.Size.Small)
+                            <td>@item.Size</td>
+                            <td>@item.Price</td>
+                            <td>@item.Calories</td>
+                        </tr>
+                        <tr>
+                            @(item.Size = DinoDiner.Menu.Size.Medium)
+                            <td>@item.Size</td>
+                            <td>@item.Price</td>
+                            <td>@item.Calories</td>
+                        </tr>
+                        <tr>
+                            @(item.Size = DinoDiner.Menu.Size.Large)
+                            <td>@item.Size</td>
+                            <td>@item.Price</td>
+                            <td>@item.Calories</td>
+                        </tr>
+                    </table>
+                    <p>Ingredients:</p>
+                    <p class="ingredient">
+                        @foreach (string ingredient in item.Ingredients)
+                        {
+                            <div>@ingredient</div>
+                        }
+                    </p>
+                </div>
                 }
             </div>
         }
@@ -72,15 +124,41 @@
 
                 @foreach (DinoDiner.Menu.IMenuItem item in Model.drinks)
                 {
-                    <div class="menu-item">
-                        <p>@item.Description $@item.Price Calories are @item.Calories</p>
-                        <p class="ingredient">
-                            @foreach (string ingredient in item.Ingredients)
-                            {
-                                <div>@ingredient</div>
-                            }
-                        </p>
-                    </div>
+                <div class="menu-item">
+                    <p>@item.Description</p>
+                    <table>
+                        <tr>
+                            <th>Size</th>
+                            <th>Price</th>
+                            <th>Calories</th>
+                        </tr>
+                        <tr>
+                            @(item.Size = DinoDiner.Menu.Size.Small)
+                            <td>@item.Size</td>
+                            <td>@item.Price</td>
+                            <td>@item.Calories</td>
+                        </tr>
+                        <tr>
+                            @(item.Size = DinoDiner.Menu.Size.Medium)
+                            <td>@item.Size</td>
+                            <td>@item.Price</td>
+                            <td>@item.Calories</td>
+                        </tr>
+                        <tr>
+                            @(item.Size = DinoDiner.Menu.Size.Large)
+                            <td>@item.Size</td>
+                            <td>@item.Price</td>
+                            <td>@item.Calories</td>
+                        </tr>
+                    </table>
+                    <p>Ingredients:</p>
+                    <p class="ingredient">
+                        @foreach (string ingredient in item.Ingredients)
+                        {
+                            <div>@ingredient</div>
+                        }
+                    </p>
+                </div>
                 }
             </div>
         }

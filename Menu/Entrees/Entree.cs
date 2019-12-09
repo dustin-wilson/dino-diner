@@ -38,6 +38,11 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract string[] Special { get; }
 
+        /// <summary>
+        /// Returns the size of the item
+        /// </summary>
+        public Size Size { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

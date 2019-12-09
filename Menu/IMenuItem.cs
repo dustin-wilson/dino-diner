@@ -29,5 +29,10 @@ namespace DinoDiner.Menu
         /// Description of the item
         /// </summary>
         string Description { get; }
+
+        /// <summary>
+        /// Size of the item
+        /// </summary>
+        Size Size { get; set; }
     }
 }

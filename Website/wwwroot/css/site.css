@@ -52,3 +52,11 @@ form {
 h4 {
     margin-bottom: 5px;
 }
+
+table {
+    outline: 1px solid;
+}
+
+td {
+    outline: 1px solid;
+}

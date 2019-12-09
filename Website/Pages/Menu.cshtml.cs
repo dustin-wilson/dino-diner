@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Menu = DinoDiner.Menu.Menu;
+using Size = DinoDiner.Menu.Size;
 using DinoDiner.Menu;
 
 namespace Website.Pages
